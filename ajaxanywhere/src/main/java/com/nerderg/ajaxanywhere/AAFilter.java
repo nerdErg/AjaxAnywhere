@@ -46,9 +46,15 @@ public class AAFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
+        String requestMapping = "";
+        if (request instanceof HttpServletRequest) {
+            requestMapping = ((HttpServletRequest) request).getRequestURI();
+        }
+        long start = System.currentTimeMillis();
         if (!AAUtils.isAjaxAnywhereRequest(request)) {
             // No using AjaxAnywhere?, then keep going
             filterChain.doFilter(servletRequest, response);
+            logger.info("Request: \"" + requestMapping + "\" took: " + (System.currentTimeMillis() - start) + "ms" );
         } else {
             logger.info("Start handling Ajax request with AjaxAnywhere refresh zones on it.");
             // Set encoding for the XML response
@@ -70,6 +76,7 @@ public class AAFilter implements Filter {
                 logger.log(Level.SEVERE,e.getMessage(), e);
                 XMLHandler.handleError(response, e);
             }
+            logger.info("AjaxAnywhere Request: \"" + requestMapping + "\" took: " + (System.currentTimeMillis() - start) + "ms" );
         }
     }
 
