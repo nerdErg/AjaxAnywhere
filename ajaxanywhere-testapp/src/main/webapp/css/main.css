@@ -118,6 +118,14 @@ table.selectable > tbody tr {
     cursor: pointer;
 }
 
+#spinner {
+    position: absolute;
+    background: url('../img/ajax-loader.gif') center no-repeat;
+    z-index: 10000;
+    width: 32px;
+    height: 32px;
+}
+
 
 
 

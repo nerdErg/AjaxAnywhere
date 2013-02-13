@@ -24,9 +24,7 @@
 
     <script src="<c:url value="/js/jquery/jquery-1.9.1.min.js"/>"></script>
     <script src="<c:url value="/js/jquery/plugins/jquery-ui-1.10.0.custom.min.js"/>"></script>
-    <script src="<c:url value="/js/bootstrap/bootstrap-2.2.2.min.js"/>"></script>
     <script src="<c:url value="/js/modernizer/modernizr-2.6.2-respond-1.1.0.min.js"/>"></script>
-    <script src="<c:url value="/js/common.js"/>"></script>
 
     <%-- Add additional header info --%>
     <decorator:head/>
@@ -55,6 +53,7 @@
             </div>
         </div>
     </div>
+
     <div id="main" class="container clear-top">
         <decorator:body/>
     </div>
@@ -70,5 +69,6 @@
 
 <script src="<c:url value="/js/bootstrap/bootstrap-2.2.2.min.js"/>"></script>
 <script src="<c:url value="/js/common.js"/>"></script>
+<div id="spinner" style="display:none;"></div>
 </body>
 </html>
