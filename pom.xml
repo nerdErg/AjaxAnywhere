@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.nerderg</groupId>
+	<artifactId>ajaxanywhere-parent</artifactId>
+	<version>2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>AjaxAnywhere</name>
+    <description>
+        This project is a fork of the original AjaxAnywhere project (http://ajaxanywhere.sourceforge.net/)whose aim is:
+        - Simplify codebase
+        - Use jQuery to implement the required scripts
+        - Avoid the need for the developer to write any javascript at all to apply AjaxAnywhere to any component of the page
+        - Remove JSF support
+        - Remove dependency with Java SE HTML parser
+    </description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<scm>
+		<url></url>
+		<connection></connection>
+		<developerConnection></developerConnection>
+	</scm>
+	
+	<organization>
+		<name>Nerderg</name>
+		<url>http://www.nerderg.com</url>
+	</organization>
+
+    <developers>
+        <developer>
+            <name>Angel Ruiz</name>
+            <email>aruizca@gmail.com</email>
+        </developer>
+    </developers>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>ajaxanywhere</module>
+        <module>ajaxanywhere-testapp</module>
+    </modules>
+</project>

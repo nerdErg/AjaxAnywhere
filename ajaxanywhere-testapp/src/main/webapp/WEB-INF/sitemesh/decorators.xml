@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/jsp/layout">
+	<excludes>
+        <pattern>/css/*</pattern>
+        <pattern>/js/*</pattern>
+        <pattern>/img/*</pattern>
+        <!-- Next exclusion is for Ajax request that are not performed using AjaxAnywhere -->
+        <pattern>/ajax/*</pattern>
+    </excludes>
+
+    <!--<decorator name="login-layout" page="no-menu-layout.jsp">-->
+        <!--<pattern>/action/login*</pattern>-->
+    <!--</decorator>-->
+
+    <!--<decorator name="popup-layout" page="popup-layout.jsp">-->
+        <!--<pattern>/action/popup/*</pattern>-->
+    <!--</decorator>-->
+
+    <decorator name="main-layout" page="main-layout.jsp">
+        <pattern>/action/*</pattern>
+    </decorator>
+
+</decorators>

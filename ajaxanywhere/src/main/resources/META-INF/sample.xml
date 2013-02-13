@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<zones>
+    <zone id="tableZone">
+        <![CDATA[
+        <input type="hidden" name="d-8072942-o" value=""/>
+    <input type="hidden" name="d-8072942-s" value=""/>
+    <input type="hidden" name="d-8072942-p" value="2"/>
+    <script type="text/javascript">
+function displaytagform(formname, fields){
+    var objfrm = document.forms[formname];
+    for (j=fields.length-1;j>=0;j--){var f= objfrm.elements[fields[j].f];if (f){f.value=fields[j].v};}
+    objfrm.submit();
+}
+</script>
+    <span class="pagebanner">226 records found, displaying 11 to 20.</span>
+    <span class="pagelinks">[<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'1'}])">First</a>/<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'1'}])">Prev</a>] <a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'1'}])" title="Go to page 1">1</a>,<strong>2</strong>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'3'}])" title="Go to page 3">3</a>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'4'}])" title="Go to page 4">4</a>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'5'}])" title="Go to page 5">5</a>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'6'}])" title="Go to page 6">6</a>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'7'}])" title="Go to page 7">7</a>,<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'8'}])" title="Go to page 8">8</a> [<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'3'}])">Next</a>/<a href="javascript:displaytagform('countryFormDialog',[{f:'d-8072942-o',v:['']},{f:'d-8072942-s',v:['']},{f:'d-8072942-p',v:'23'}])">Last</a>]</span>
+    <table id="countryMapEntry" class="table table-condensed table-hover table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+                AW
+            </td>
+          <td>
+                Aruba
+            </td>
+        </tr>
+        <tr class="even">
+          <td>
+                AU
+            </td>
+          <td>
+                Australia
+            </td>
+        </tr>
+        <tr class="odd">
+          <td>
+                AT
+            </td>
+          <td>
+                Austria
+            </td>
+        </tr>
+        <tr class="even">
+          <td>
+                AZ
+            </td>
+          <td>
+                Azerbaijan
+            </td>
+        </tr>
+        <tr class="odd">
+          <td>
+                BS
+            </td>
+          <td>
+                Bahamas, The
+            </td>
+        </tr>
+        <tr class="even">
+          <td>
+                BH
+            </td>
+          <td>
+                Bahrain
+            </td>
+        </tr>
+        <tr class="odd">
+          <td>
+                BD
+            </td>
+          <td>
+                Bangladesh
+            </td>
+        </tr>
+        <tr class="even">
+          <td>
+                BB
+            </td>
+          <td>
+                Barbados
+            </td>
+        </tr>
+        <tr class="odd">
+          <td>
+                BY
+            </td>
+          <td>
+                Belarus
+            </td>
+        </tr>
+        <tr class="even">
+          <td>
+                BE
+            </td>
+          <td>
+                Belgium
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+            function displaytagform(formname, fields){
+                var objfrm = document.getElementById(formname);
+                for (j=fields.length-1;j>=0;j--){var f= objfrm.elements[fields[j].f];if (f){f.value=fields[j].v};}
+                $("form#"+ formname).submit();
+            }
+        </script>
+    ]]>
+    </zone>
+</zones>
+
+

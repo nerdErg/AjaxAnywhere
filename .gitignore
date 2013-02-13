@@ -1,6 +1,9 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+.settings
+.project
+*.project
+*.classpath
+target
+/ajaxanywhere-core/target
+/.idea
+*.iml
+atlassian-ide-plugin.xml
