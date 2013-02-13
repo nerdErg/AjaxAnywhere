@@ -23,6 +23,7 @@
         </listener-class>
     </listener>
 
+    <!-- Jul to Slf4j Bridge Listener -->
     <listener>
         <listener-class>
             com.nerderg.ajaxanywhere.listener.JulToSlf4jBridgeListener
