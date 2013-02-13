@@ -23,6 +23,12 @@
         </listener-class>
     </listener>
 
+    <listener>
+        <listener-class>
+            com.nerderg.ajaxanywhere.listener.JulToSlf4jBridgeListener
+        </listener-class>
+    </listener>
+
     <filter>
         <filter-name>AjaxAnywhere</filter-name>
         <filter-class>com.nerderg.ajaxanywhere.AAFilter</filter-class>
