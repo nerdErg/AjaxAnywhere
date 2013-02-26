@@ -1,3 +1,19 @@
+/*
+   Copyright 2005  Vitaliy Shevchuk (shevit@users.sourceforge.net)
+   Copyright 2013  nerdErg Pty Ltd (sales@nerderg.com)
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 package com.nerderg.ajaxanywhere.listener;
 
 import org.slf4j.bridge.SLF4JBridgeHandler;
@@ -9,8 +25,8 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 /**
+ * This listener should be declared in your web.xml if you want to bridge the Java Util Logging traces to SLF4J
  * @author Angel Ruiz
- * Date: 13/02/13
  */
 public class JulToSlf4jBridgeListener implements ServletContextListener {
 

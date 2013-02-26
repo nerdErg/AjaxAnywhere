@@ -12,7 +12,7 @@
     <link href="<c:url value="/css/syntax-highlighter/shCore.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/css/syntax-highlighter/shThemeDefault.css"/>" rel="stylesheet" type="text/css" />
 
-    <script src="<c:url value="/js/jquery/plugins/jquery-aa.js"/>"></script>
+    <script src="<c:url value="/js/jquery-aa-2.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/syntax-highlighter/shCore.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/syntax-highlighter/shBrushXml.js"/>"></script>
 </head>
