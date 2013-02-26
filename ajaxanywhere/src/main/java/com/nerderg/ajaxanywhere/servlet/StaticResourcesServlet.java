@@ -37,6 +37,10 @@ public class StaticResourcesServlet extends HttpServlet {
         copy(inputStream, resp.getOutputStream());
     }
 
+    /* Important!!*/
+    /* The code bellow has been copied from apache Commons IO. More specifically from its IOUtils class. */
+    /* The reason is becasue I don't want to include any more dependencies */
+
     /**
      * The default buffer size ({@value}) to use for
      * {@link #copyLarge(InputStream, OutputStream)}
