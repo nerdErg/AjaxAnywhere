@@ -157,17 +157,4 @@ public class XMLHandler {
         sendDOMDocument(response, doc);
 
     }
-
-//    /**
-//     *
-//     * @param bufferResponseWrapper
-//     */
-//    public static void sendRedirect(BufferResponseWrapper bufferResponseWrapper) {
-//        Document doc = newDocument();
-//        Element root = addRootElement(doc, AAConstants.AA_XML_REDIRECT);
-//        String redirect = bufferResponseWrapper.getRedirect();
-//        appendText(root, doc, redirect);
-//
-//        sendDOMDocument(bufferResponseWrapper.getOriginalResponse(), doc);
-//    }
 }

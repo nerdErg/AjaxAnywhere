@@ -22,7 +22,8 @@
 var AjaxAnywhere = {};
 
 /**
- *
+ * This function handles the submission of the provided form using the jQuery Ajax support and prepares the request to
+ * hold the parameters required by the AjaxAnywhere library
  * @param parentForm
  * @param refreshZones
  * @param event
@@ -51,7 +52,8 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
 }
 
 /**
- * TODO
+ * This function handles the submission of the provided link using the jQuery Ajax support and prepares the request to
+ * hold the parameters required by the AjaxAnywhere library
  * @param href
  * @param refreshZones
  */
@@ -71,7 +73,7 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones) {
 }
 
 /**
- * TODO comment
+ * Function to handle successful requests.
  * @param response
  * @param status
  * @param request
@@ -86,7 +88,7 @@ AjaxAnywhere.handleSuccessfulRequest = function (response, status, request) {
 }
 
 /**
- * TODO comment
+ * Function to handle unsuccessful requests.
  * @param request
  * @param status
  * @param error
@@ -106,7 +108,7 @@ AjaxAnywhere.handleError = function(request, status, error) {
 }
 
 /**
- * TODO comment
+ * This function parses the XML response to extract each zone to be appended to the corresponding DOM node.
  * @param request
  * @param response
  */

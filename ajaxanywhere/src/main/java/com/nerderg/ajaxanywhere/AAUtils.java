@@ -28,6 +28,11 @@ import java.util.StringTokenizer;
  */
 public class AAUtils {
 
+    /**
+     *
+     * @param servletRequest
+     * @return
+     */
     public static boolean isAjaxAnywhereRequest(ServletRequest servletRequest) {
         return isjQueryAjaxRequest(servletRequest) && !AAUtils.getZonesToRefresh(servletRequest).isEmpty();
     }
@@ -55,6 +60,11 @@ public class AAUtils {
         while (st.hasMoreTokens()) res.add(st.nextToken().trim());
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     public static Set getZonesToRefresh(ServletRequest request) {
         if (request.getAttribute(AAConstants.REFRESH_ZONES_KEY) == null) {
             request.setAttribute(AAConstants.REFRESH_ZONES_KEY, new HashSet());
@@ -65,6 +75,10 @@ public class AAUtils {
         return zonesToRefresh;
     }
 
+    /**
+     *
+     * @param request
+     */
     private static void getRefreshZonesFromRequest(ServletRequest request) {
         String[] zones = request.getParameterValues(AAConstants.ZONES_URL_KEY);
         if (zones != null) {
