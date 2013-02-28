@@ -37,4 +37,5 @@ public interface AAConstants {
     String AA_XML_ID = "id";
     String AA_XML_EXCEPTION = "exception";
     String AA_XML_TYPE = "type";
+    String AA_XML_REDIRECT = "redirect";
 }

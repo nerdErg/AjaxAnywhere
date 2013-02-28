@@ -98,12 +98,19 @@ public class ExamplesController {
     }
 
     @RequestMapping(value = "/examples/4", method = RequestMethod.GET)
-    public String example4ShowCode(HttpServletRequest request) {
+    public String example4ShowCode(HttpServletRequest request,
+                                   @RequestParam(required = false) String data) {
 
         String pageLocation = "/WEB-INF/jsp/examples/example4.jsp";
         request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
 
-        return Routing.Forward.EXAMPLES;
+        String view = Routing.Forward.EXAMPLES;
+
+        if (StringUtils.equals(data, "redirect")) {
+            view = Routing.Redirect.EXAMPLES;
+        }
+
+        return view;
     }
 
     @RequestMapping("/examples/dialog")

@@ -16,6 +16,10 @@ public class Routing {
         public static final String EXAMPLE5 = "examples/example5";
     }
 
+    public class Redirect {
+        public static final String EXAMPLES = "redirect:/action/examples";
+    }
+
     public class Forward {
         public static final String EXAMPLES = "forward:/action/examples";
 

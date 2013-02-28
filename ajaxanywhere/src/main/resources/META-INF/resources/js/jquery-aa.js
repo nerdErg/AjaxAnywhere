@@ -79,9 +79,9 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones) {
  * @param request
  */
 AjaxAnywhere.handleSuccessfulRequest = function (response, status, request) {
-    if (response.redirect) {
-        // data.redirect contains the string URL to redirect to
-        window.location.href = response.redirect;
+    if (request.getResponseHeader('content-type').toLowerCase().substring(0, 8) != 'text/xml') {
+        alert("AjaxAnywhere error : content-type in not text/xml : [" + request.getResponseHeader('content-type') + "]");
+        return;
     } else {
         AjaxAnywhere.processXmlResponse(request, response);
     }
@@ -113,15 +113,14 @@ AjaxAnywhere.handleError = function(request, status, error) {
  * @param response
  */
 AjaxAnywhere.processXmlResponse = function(request, response) {
-    if (request.getResponseHeader('content-type').toLowerCase().substring(0, 8) != 'text/xml') {
-        alert("AjaxAnywhere error : content-type in not text/xml : [" + this.req.getResponseHeader('content-type') + "]");
-        return;
+    if ($(response).find("redirect").length == 1) {
+        window.location.href = $(response).find("redirect").text();
+    } else {
+        $(response).find("zone").each (function(i, zoneNode) {
+            var id = $(zoneNode).attr("id");
+            $("#"+id).html($(zoneNode).text());
+        });
     }
-
-    $(response).find("zone").each (function(i, zoneNode) {
-        var id = $(zoneNode).attr("id");
-        $("#"+id).html($(zoneNode).text());
-    });
 
 }
 

@@ -71,6 +71,8 @@ public class AAFilter implements Filter {
 
                 if (bufferResponseWrapper.getRedirect() == null) {
                     XMLHandler.sendZones(bufferResponseWrapper, AAUtils.getZonesToRefresh(request));
+                } else {
+                    XMLHandler.sendRedirect(bufferResponseWrapper);
                 }
             } catch (Throwable e) {
                 logger.log(Level.SEVERE,e.getMessage(), e);

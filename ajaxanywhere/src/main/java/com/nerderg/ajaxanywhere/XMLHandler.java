@@ -39,12 +39,13 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
+ * Class to perform all XML operation
  * @author Angel Ruiz (aruizca@gmail.com)
  */
 public class XMLHandler {
 
     /**
-     *
+     * Generates the XML response with zones to refresh and sends it
      * @param bufferResponseWrapper
      * @param refreshZones
      */
@@ -83,7 +84,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Adds root element to XML
      * @param doc
      * @param rootTagName
      * @return
@@ -95,7 +96,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Attaches the XML to response
      * @param originalResponse
      * @param doc
      */
@@ -119,7 +120,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Returns a new XML Document
      * @return
      */
     private static Document newDocument() {
@@ -131,7 +132,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Add text to XML node
      * @param zoneNode
      * @param doc
      * @param content
@@ -141,7 +142,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Sends error trace inside the XML
      * @param response
      * @param exception
      */
@@ -155,6 +156,17 @@ public class XMLHandler {
         appendText(root, doc, sw.toString());
 
         sendDOMDocument(response, doc);
+    }
 
+    /**
+     * Send redirect URL inside XML node
+     * @param bufferResponseWrapper
+     */
+    public static void sendRedirect(BufferResponseWrapper bufferResponseWrapper) {
+        Document doc = newDocument();
+        Element root = addRootElement(doc, AAConstants.AA_XML_REDIRECT);
+        appendText(root, doc, bufferResponseWrapper.getRedirect());
+
+        sendDOMDocument(bufferResponseWrapper.getOriginalResponse(), doc);
     }
 }
