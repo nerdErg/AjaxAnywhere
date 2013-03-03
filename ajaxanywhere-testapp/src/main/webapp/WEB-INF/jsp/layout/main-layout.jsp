@@ -59,13 +59,15 @@
     </div>
 </div>
 
-<footer class="footer">
-    <span>Sponsored by: </span>
-    <a href="http://www.nerdErg.com" target="_new">
-        <img class="logo" alt="nerdErg logo" src="<c:url value="/img/nerderg-logo.png"/>"/>
-        <img class="name" alt="nerdErg - harness the power of the nerd" src="<c:url value="/img/nerderg-text.png"/>">
-    </a>
-</footer>
+<div class="container">
+    <footer class="footer">
+        <span>Sponsored by: </span>
+        <a href="http://www.nerdErg.com" target="_new">
+            <img class="logo" alt="nerdErg logo" src="<c:url value="/img/nerderg-logo.png"/>"/>
+            <img class="name" alt="nerdErg - harness the power of the nerd" src="<c:url value="/img/nerderg-text.png"/>">
+        </a>
+    </footer>
+</div>
 
 <script src="<c:url value="/js/bootstrap/bootstrap-2.2.2.min.js"/>"></script>
 <script src="<c:url value="/js/common.js"/>"></script>
