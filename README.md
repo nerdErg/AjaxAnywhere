@@ -1,4 +1,4 @@
-AjaxAnywhere
+[AjaxAnywhere](http://www.ajaxanywhere.com)
 ============
 
 This project is a fork of the original AjaxAnywhere project (http://ajaxanywhere.sourceforge.net/) whose aims are:
