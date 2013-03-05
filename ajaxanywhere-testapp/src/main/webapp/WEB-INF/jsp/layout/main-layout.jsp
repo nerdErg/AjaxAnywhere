@@ -72,6 +72,7 @@
 
 <script src="<c:url value="/js/bootstrap/bootstrap-2.2.2.min.js"/>"></script>
 <script src="<c:url value="/js/common.js"/>"></script>
+<script src="<c:url value="/js/google-analytics.js"/>"></script>
 <div id="spinner" style="display:none;"></div>
 </body>
 </html>
