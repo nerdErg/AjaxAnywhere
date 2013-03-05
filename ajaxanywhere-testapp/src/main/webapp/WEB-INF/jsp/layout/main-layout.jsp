@@ -15,6 +15,7 @@
     <title><fmt:message key="title.app"/> - <decorator:title/></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="<c:url value="/img/favicon.ico"/>" type="image/x-icon">
 
     <link rel="stylesheet" href="<c:url value="/css/jquery-ui-themes/redmond/jquery-ui-1.10.0.custom.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/bootstrap-2.2.2.min.css"/>">
