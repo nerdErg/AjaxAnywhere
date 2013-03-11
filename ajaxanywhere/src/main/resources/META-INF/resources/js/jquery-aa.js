@@ -127,7 +127,9 @@ AjaxAnywhere.processXmlResponse = function(request, response) {
 // Tasks to be performed once the document is loaded
 $(function () {
 
-    // Check for all the AjaxAnywhere enabled forms
+    // Check for all the AjaxAnywhere enabled forms. This is similar to the event handler bellow but the main difference is
+    // that in this instance we are able to add the value of the event trigger with the rest of the form values that will
+    // be serialized and sent in the Ajax request
     $(document).on("click", "form[aa-refresh-zones] input[type='submit'], form[aa-refresh-zones] input[type='image'], form[aa-refresh-zones] button[type='submit']", function(event) {
         event.preventDefault();
         var parentForm = this.form;
