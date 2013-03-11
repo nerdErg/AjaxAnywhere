@@ -52,7 +52,6 @@ public class AAFilter implements Filter {
         }
         long start = System.currentTimeMillis();
         if (!AAUtils.isAjaxAnywhereRequest(request)) {
-            // No using AjaxAnywhere?, then keep going
             filterChain.doFilter(servletRequest, response);
             logger.info("Request: \"" + requestMapping + "\" took: " + (System.currentTimeMillis() - start) + "ms" );
         } else {

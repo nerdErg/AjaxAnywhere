@@ -39,7 +39,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Class to perform all XML operation
+ * Class to perform all XML operations within the AjaxAnywhere library operation
  * @author Angel Ruiz (aruizca@gmail.com)
  */
 public class XMLHandler {
@@ -72,7 +72,7 @@ public class XMLHandler {
     }
 
     /**
-     *
+     * Handles adds the provided zone content to the XML document
      * @param content
      * @param zoneNode
      * @param doc
@@ -107,7 +107,8 @@ public class XMLHandler {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             transformer.transform(new DOMSource(doc), new StreamResult(baos));
-            // Important!!! This is required because due to encoding stuff, the response header might say that its size is bigger than it actually is, causing all sort of problems because the browser keeps waiting for the rest.
+            // Important!!! This is required because due to encoding stuff, the response header might say that its size
+            // is bigger than it actually is, causing all sort of problems because the browser keeps waiting for the rest.
             originalResponse.setContentLength(baos.size());
             baos.writeTo(originalResponse.getOutputStream());
             originalResponse.flushBuffer();
