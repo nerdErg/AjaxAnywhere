@@ -33,10 +33,10 @@ import com.nerderg.ajaxanywhere.AAUtils;
  * description = ""
  */
 public class ZoneTag extends TagSupport {
-    private static final boolean DEFAULT_SKIP_INF_NOT_INCLUDED = false;
+    private static final boolean DEFAULT_SKIP_IF_NOT_INCLUDED = false;
 
     private String id;
-    private boolean skipIfNotIncluded = DEFAULT_SKIP_INF_NOT_INCLUDED;
+    private boolean skipIfNotIncluded = DEFAULT_SKIP_IF_NOT_INCLUDED;
 
     public String getId() {
         return id;
@@ -56,19 +56,19 @@ public class ZoneTag extends TagSupport {
     public int doStartTag() throws JspException {
         try {
             pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id));
+
+            ServletRequest request = pageContext.getRequest();
+            if (skipIfNotIncluded
+                    && AAUtils.isjQueryAjaxRequest(request)
+                    && !AAUtils.getZonesToRefresh(request).contains(id)
+                    ) {
+                return SKIP_BODY;
+            } else {
+                return EVAL_BODY_INCLUDE;
+            }
         } catch (IOException e) {
             throw new JspException(e);
         }
-
-        ServletRequest request = pageContext.getRequest();
-        if (skipIfNotIncluded
-                && AAUtils.isjQueryAjaxRequest(request)
-                && !AAUtils.getZonesToRefresh(request).contains(id)
-                )
-            return SKIP_BODY;
-        else
-            return EVAL_BODY_INCLUDE;
-
     }
 
     public int doEndTag() throws JspException {
@@ -86,7 +86,7 @@ public class ZoneTag extends TagSupport {
 
 
     public void setPageContext(PageContext pageContext) {
-        skipIfNotIncluded = DEFAULT_SKIP_INF_NOT_INCLUDED;
+        skipIfNotIncluded = DEFAULT_SKIP_IF_NOT_INCLUDED;
         super.setPageContext(pageContext);
     }
 

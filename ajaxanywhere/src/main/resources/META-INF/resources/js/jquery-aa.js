@@ -80,7 +80,7 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones) {
  */
 AjaxAnywhere.handleSuccessfulRequest = function (response, status, request) {
     if (request.getResponseHeader('content-type').toLowerCase().substring(0, 8) != 'text/xml') {
-        alert("AjaxAnywhere error : content-type in not text/xml : [" + request.getResponseHeader('content-type') + "]");
+        alert("AjaxAnywhere error : content-type is not text/xml : [" + request.getResponseHeader('content-type') + "]");
         return;
     } else {
         AjaxAnywhere.processXmlResponse(request, response);
@@ -127,11 +127,13 @@ AjaxAnywhere.processXmlResponse = function(request, response) {
 // Tasks to be performed once the document is loaded
 $(function () {
 
-    // Check for all the AjaxAnywhere enabled forms
+    // Check for all the AjaxAnywhere enabled forms. This is similar to the event handler bellow but the main difference is
+    // that in this instance we are able to add the value of the event trigger with the rest of the form values that will
+    // be serialized and sent in the Ajax request
     $(document).on("click", "form[aa-refresh-zones] input[type='submit'], form[aa-refresh-zones] input[type='image'], form[aa-refresh-zones] button[type='submit']", function(event) {
         event.preventDefault();
-        var parentForm = $(this).closest("form");
-        // Submit Form w ith AjaxAnywhere attributes
+        var parentForm = this.form;
+        // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(parentForm).attr("aa-refresh-zones"), event, $(parentForm).attr("method"));
     });
 
@@ -145,7 +147,7 @@ $(function () {
     $(document).on("click", "input[type='submit'][aa-refresh-zones], input[type='image'][aa-refresh-zones], button[type='submit'][aa-refresh-zones]", function(event) {
         event.preventDefault();
         // Find parent form
-        var parentForm = $(this).closest("form");
+        var parentForm = this.form;
         // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), event, $(this).attr("aa-method"));
     });
@@ -154,7 +156,7 @@ $(function () {
     $(document).on("change", "select[aa-refresh-zones]", function(event) {
         event.preventDefault();
         // Find parent form
-        var parentForm = $(this).closest("form");
+        var parentForm = this.form;
         // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"));
     });

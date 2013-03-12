@@ -34,7 +34,7 @@ public class AAUtils {
      * @return
      */
     public static boolean isAjaxAnywhereRequest(ServletRequest servletRequest) {
-        return isjQueryAjaxRequest(servletRequest) && !AAUtils.getZonesToRefresh(servletRequest).isEmpty();
+        return isjQueryAjaxRequest(servletRequest) && !getZonesToRefresh(servletRequest).isEmpty();
     }
 
     /**
@@ -54,10 +54,10 @@ public class AAUtils {
      */
     private static void addZonesToRefresh(ServletRequest request, String commaSeparatedZonesList) {
         Set res = getZonesToRefresh(request);
-        if (res == null)
-            return;
-        StringTokenizer st = new StringTokenizer(commaSeparatedZonesList, ",;", false);
-        while (st.hasMoreTokens()) res.add(st.nextToken().trim());
+        if (res != null) {
+            StringTokenizer st = new StringTokenizer(commaSeparatedZonesList, ",", false);
+            while (st.hasMoreTokens()) res.add(st.nextToken().trim());
+        }
     }
 
     /**
