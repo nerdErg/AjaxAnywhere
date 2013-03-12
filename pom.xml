@@ -1,10 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
 	<groupId>com.nerderg.ajaxanywhere</groupId>
 	<artifactId>ajaxanywhere-parent</artifactId>
 	<version>2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+
 	<name>AjaxAnywhere</name>
     <description>
         This project is a fork of the original AjaxAnywhere project (http://ajaxanywhere.sourceforge.net/)whose aim is:
@@ -14,6 +22,15 @@
         - Remove JSF support
         - Remove dependency with Java SE HTML parser
     </description>
+    <url>http://nerderg.com/AjaxAnywhere</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,25 +39,14 @@
 
 	<scm>
 		<url>https://github.com/nerdErg/AjaxAnywhere.git</url>
-		<connection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</connection>
-		<developerConnection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</developerConnection>
+		<connection>scm:git:git@github.com:nerdErg/AjaxAnywhere.git</connection>
+		<developerConnection>scm:git:git@github.com:nerdErg/AjaxAnywhere.git</developerConnection>
 	</scm>
 
-    <distributionManagement>
-        <repository>
-            <id>nerderg-releases</id>
-            <url>${local.nerderg.releases.repository}</url>
-        </repository>
-        <snapshotRepository>
-            <id>nerderg-snapshots</id>
-            <url>${local.nerderg.snapshots.repository}</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-	<organization>
-		<name>Nerderg</name>
-		<url>http://www.nerderg.com</url>
-	</organization>
+    <organization>
+        <name>Nerderg</name>
+        <url>http://www.nerderg.com</url>
+    </organization>
 
     <developers>
         <developer>
@@ -48,7 +54,7 @@
             <email>aruizca@gmail.com</email>
         </developer>
     </developers>
-	
+
 	<build>
 		<plugins>
 			<plugin>

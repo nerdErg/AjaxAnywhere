@@ -12,6 +12,29 @@
 	<packaging>jar</packaging>
 
     <name>AjaxAnywhere Core</name>
+
+    <profiles>
+        <profile>
+            <id>1.4</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <finalName>${artifactId}-jre1.4</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>1.5</source>
+                            <target>jsr14</target>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 	
 	<dependencies>
 		<dependency>
