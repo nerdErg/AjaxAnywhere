@@ -39,16 +39,11 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="#">AjaxAnywhere Test App</a>
+                <a class="brand" href="<c:url value="/action/home"/>">AjaxAnywhere Test App</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active"><a href="<c:url value="/action/home"/>">Home</a></li>
-                        <li class="active"><a href="<c:url value="/action/examples"/>">Examples</a></li>
+                        <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg">Documentation</a></li>
+                        <li><a href="<c:url value="/action/examples"/>">Examples</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -63,7 +58,7 @@
 <div class="container">
     <footer class="footer">
         <span>Sponsored by: </span>
-        <a href="http://www.nerdErg.com" target="_new">
+        <a href="http://www.nerdErg.com" target="_nerdErg">
             <img class="logo" alt="nerdErg logo" src="<c:url value="/img/nerderg-logo.png"/>"/>
             <img class="name" alt="nerdErg - harness the power of the nerd" src="<c:url value="/img/nerderg-text.png"/>">
         </a>

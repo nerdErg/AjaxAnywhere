@@ -19,14 +19,33 @@ html, body {
     padding-bottom: 150px;
 }
 
+.navbar {
+    font-family: 'Special Elite', cursive;
+}
+
+.carousel-inner div {
+    text-align: center;
+}
+
+.carousel-inner div div.carousel-caption {
+    position: relative;
+    text-align: left;
+    margin-top: 1.5em;
+}
+
+
+.carousel-inner > .item > img {
+    display: inline-block;
+}
+
 .footer {
     text-align: left;
     height: 150px;
-    background-color: #EEEEEE;
     padding-right: 20px;
     padding-left: 20px;
     vertical-align: middle;
     padding-top: 20px;
+    border-top: solid 1px #d3d3d3;
 }
 
 .footer span {

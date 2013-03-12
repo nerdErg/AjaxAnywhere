@@ -1,14 +1,26 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Home</title>
     <meta name="decorator" content="main-layout"/>
 </head>
 <body>
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="active item">
+                <img src="<c:url value="/img/AjaxAnywhere-logo.png"/>" border="0"/>
+                <div class="carousel-caption">
+                    <h4>AjaxAnywhere</h4>
+                    <p>is an <strong>Open Source</strong> Java Ajax framework that enables the developer to <strong>add Ajax behavior to your web application without any Javascript coding</strong>.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
 </body>
 </html>
