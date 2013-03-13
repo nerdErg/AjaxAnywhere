@@ -37,8 +37,8 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:git@github.com:nerdErg/AjaxAnywhere.git</connection>
-		<developerConnection>scm:git:git@github.com:nerdErg/AjaxAnywhere.git</developerConnection>
+		<connection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</connection>
+		<developerConnection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</developerConnection>
         <url>https://github.com/nerdErg/AjaxAnywhere.git</url>
 	  <tag>AjaxAnywhere-2.0</tag>
   </scm>
