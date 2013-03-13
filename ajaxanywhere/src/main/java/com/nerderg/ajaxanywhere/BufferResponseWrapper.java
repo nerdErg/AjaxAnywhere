@@ -1,6 +1,6 @@
 /*
    Copyright 2005  Vitaliy Shevchuk (shevit@users.sourceforge.net)
-   Copyright 2013  nerdErg Pty Ltd (sales@nerderg.com)
+   Copyright 2013  nerdErg Pty Ltd (info@nerderg.com)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
