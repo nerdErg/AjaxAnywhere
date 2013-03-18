@@ -21,7 +21,7 @@
                 <img src="<c:url value="/img/features.png"/>" alt="Features summary" title="Features summary" border="0"/>
                 <div class="carousel-caption">
                     <h4>Simplicity, Productivity and Maintainability</h4>
-                    <p>When implementing Ajax enabled web applications. You can achieve more reusability while at the same time improving the  </p>
+                    <p>and it integrates seamlessly with any of your favourite Java or JVM Action based Web Frameworks.</p>
                 </div>
             </div>
             <div class="item">
