@@ -7,7 +7,7 @@
     <meta name="decorator" content="main-layout"/>
 </head>
 <body>
-    <div id="myCarousel" class="carousel slide">
+    <div id="myCarousel" class="carousel slide" data-interval="10000">
         <!-- Carousel items -->
         <div class="carousel-inner">
             <div class="active item">
