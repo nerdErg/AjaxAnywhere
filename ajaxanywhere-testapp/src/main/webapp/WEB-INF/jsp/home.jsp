@@ -6,7 +6,7 @@
     <title>Home</title>
     <meta name="decorator" content="main-layout"/>
 </head>
-<body>
+<body id="home">
     <div id="myCarousel" class="carousel slide" data-interval="10000">
         <!-- Carousel items -->
         <div class="carousel-inner">

@@ -16,7 +16,7 @@
     <script type="text/javascript" src="<c:url value="/js/syntax-highlighter/shCore.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/js/syntax-highlighter/shBrushXml.js"/>"></script>
 </head>
-<body>
+<body id="examples">
     <div class="row">
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-tabs nav-stacked bs-docs-sidenav affix">

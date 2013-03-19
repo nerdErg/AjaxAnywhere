@@ -19,6 +19,14 @@ html, body {
     padding-bottom: 150px;
 }
 
+body#home a.home {
+    color: #ffffff !important;
+}
+
+body#examples a.examples {
+    color: #ffffff !important;
+}
+
 .navbar a {
     font-family: 'Special Elite', cursive;
 }
