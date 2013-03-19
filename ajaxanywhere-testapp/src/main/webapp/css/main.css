@@ -19,7 +19,7 @@ html, body {
     padding-bottom: 150px;
 }
 
-.navbar {
+.navbar a {
     font-family: 'Special Elite', cursive;
 }
 
@@ -143,6 +143,12 @@ table.selectable > tbody tr {
     z-index: 10000;
     width: 32px;
     height: 32px;
+}
+
+a#grails-plugin {
+    background: url('../img/grails-icon.png') left 5px no-repeat;
+    padding-left: 30px;
+    margin-left: 5px;
 }
 
 

@@ -42,8 +42,9 @@
                 <a class="brand" href="<c:url value="/action/home"/>">AjaxAnywhere Test App</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg">Documentation</a></li>
-                        <li><a href="<c:url value="/action/examples"/>">Examples</a></li>
+                        <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg" title="Documentation">Documentation</a></li>
+                        <li><a href="<c:url value="/action/examples"/>" title="Examples">Examples</a></li>
+                        <li><a href="#" id="grails-plugin" rel="popover">Grails Plugin</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -69,5 +70,6 @@
 <script src="<c:url value="/js/common.js"/>"></script>
 <script src="<c:url value="/js/google-analytics.js"/>"></script>
 <div id="spinner" style="display:none;"></div>
+
 </body>
 </html>
