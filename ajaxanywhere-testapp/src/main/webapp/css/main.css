@@ -159,6 +159,21 @@ a#grails-plugin {
     margin-left: 5px;
 }
 
+footer div#social {
+    display: inline-block;
+    float: right;
+    text-align: center;
+}
+
+footer div#social a {
+    margin: 0 1.6em;
+}
+
+footer div#social span {
+    display: inline-block;
+    padding-top: 1em;
+}
+
 
 
 

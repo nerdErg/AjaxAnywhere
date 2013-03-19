@@ -63,6 +63,22 @@
             <img class="logo" alt="nerdErg logo" src="<c:url value="/img/nerderg-logo.png"/>"/>
             <img class="name" alt="nerdErg - harness the power of the nerd" src="<c:url value="/img/nerderg-text.png"/>">
         </a>
+        <div id="social">
+            <a href="https://twitter.com/nerdErg" target="_blank">
+                <img src="<c:url value="/img/Twitter.png"/>" title="nerdErg Twitter account" alt="nerdErg Twitter account">
+            </a>
+            <a href="https://plus.google.com/u/0/communities/110661434396927001866" target="_blank">
+                <img src="<c:url value="/img/Google+.png"/>" title="nerdErg Google+ page" alt="nerdErg Google+ page">
+            </a>
+            <a href="#">
+                <img src="<c:url value="/img/Feed.png"/>">
+            </a>
+            <a href="http://www.linkedin.com/company/642670?trk=tyah" target="_blank">
+                <img src="<c:url value="/img/LinkedIn.png"/>" title="nerdErg LinkedIn page" alt="nerdErg LinkedIn page">
+            </a>
+            <br/>
+            <span>Copyright © nerdErg Pty Ltd 2013</span>
+        </div>
     </footer>
 </div>
 
