@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="<c:url value="/img/features.png"/>" alt="Features summary" title="Features summary" border="0"/>
+                <img src="<c:url value="/img/features.png"/>" alt="Features summary" title="Features summary" border="0" usemap="#frameworks-map"/>
                 <div class="carousel-caption">
                     <h4>Simplicity, Productivity and Maintainability</h4>
                     <p>and it integrates seamlessly with any of your favourite Java or JVM Action based Web Frameworks.</p>
@@ -36,5 +36,13 @@
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
+
+    <map name="frameworks-map">
+        <area shape="rect" coords="28,37,159,78" target="_blank" href="http://struts.apache.org/development/2.x/index.html" title="Struts 2" alt="Struts 2">
+        <area shape="rect" coords="178,37,328,78" target="_blank" href="http://grails.org/" title="Grails" alt="Grails">
+        <area shape="rect" coords="355,37,559,93" target="_blank" href="http://www.springsource.org/spring-framework" title="Spring MVC" alt="Spring MVC">
+        <area shape="rect" coords="575,37,724,78" target="_blank" href="https://extrema-sistemas.com/confluence/display/loom/About+Loom" title="Loom framework" alt="Loom framework">
+        <area shape="rect" coords="740,37,882,78" target="_blank" href="http://www.stripesframework.org/display/stripes/Home" title="Stripes" alt="Stripes">
+    </map>
 </body>
 </html>
