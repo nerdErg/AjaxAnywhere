@@ -70,8 +70,8 @@
             <a href="https://plus.google.com/u/0/communities/110661434396927001866" target="_blank">
                 <img src="<c:url value="/img/Google+.png"/>" title="nerdErg Google+ page" alt="nerdErg Google+ page">
             </a>
-            <a href="#">
-                <img src="<c:url value="/img/Feed.png"/>">
+            <a href="http://www.nerderg.com/feed/rss/news" target="_nerdErg">
+                <img src="<c:url value="/img/Feed.png"/>" title="nerdErg new feed" alt="nerdErg new feed">
             </a>
             <a href="http://www.linkedin.com/company/642670?trk=tyah" target="_blank">
                 <img src="<c:url value="/img/LinkedIn.png"/>" title="nerdErg LinkedIn page" alt="nerdErg LinkedIn page">
