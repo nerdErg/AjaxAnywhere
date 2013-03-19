@@ -39,7 +39,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand home" href="<c:url value="/action/home"/>">AjaxAnywhere Test App</a>
+                <a class="brand home" href="<c:url value="/action/home"/>">AjaxAnywhere (Reloaded)</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a class="examples" href="<c:url value="/action/examples"/>" title="Examples">Examples</a></li>
