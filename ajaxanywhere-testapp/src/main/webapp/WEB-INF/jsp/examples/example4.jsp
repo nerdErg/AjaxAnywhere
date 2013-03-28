@@ -4,6 +4,9 @@
 
 <fieldset>
     <legend>Ajaxify links</legend>
+    <p>
+        Normal links that are not associated with any form element can be "ajaxified" too. You can also check how AjaxAnywhere handles the possible redirects automatically:
+    </p>
 </fieldset>
 <a href="<c:url value="/action/examples/4?data=whatever"/>" aa-refresh-zones="codeLayer4">Show Code</a>
 &nbsp | &nbsp;

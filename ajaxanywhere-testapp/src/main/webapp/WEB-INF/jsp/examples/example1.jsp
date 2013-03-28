@@ -6,6 +6,12 @@
 <form action="${action}" method="post" aa-refresh-zones="aaZone1Example1, aaZone2Example1">
     <fieldset>
         <legend>Ajaxify entire forms</legend>
+        <p>
+            This example shows how you can "ajaxify" an entire form simply adding the attribute:
+            <strong><pre>aa-refresh-zones="aaZone1Example1, aaZone2Example1"></pre></strong>
+            This is only recommended for simple forms as all buttons refresh the same zones.
+            If you try them out, you will realise why this is a problem.
+        </p>
         <label>Type something:</label>
         <input type="text" name="someText" value="">
         <div>

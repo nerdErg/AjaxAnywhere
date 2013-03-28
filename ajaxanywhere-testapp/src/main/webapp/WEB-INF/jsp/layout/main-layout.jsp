@@ -45,6 +45,7 @@
                         <li><a class="examples" href="<c:url value="/action/examples"/>" title="Examples">Examples</a></li>
                         <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg" title="Documentation">Documentation</a></li>
                         <li><a href="#" id="grails-plugin" rel="popover">Grails Plugin</a></li>
+                        <li><a href="http://nerderg.com/AjaxAnywhere#download" id="download" target="_nerdErg" title="Download">Download</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

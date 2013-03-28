@@ -47,7 +47,7 @@
                 <li>
                     <a href="#example5" class="scroll">
                         <i class="icon-chevron-right"></i>
-                        Another cooler example
+                        A cooler example
                     </a>
                 </li>
             </ul>

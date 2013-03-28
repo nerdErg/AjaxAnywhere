@@ -6,7 +6,10 @@
 <c:url var="action" value="/action/examples/5" scope="request"/>
 <sf:form action="${action}" method="post" commandName="countryForm" id="countryForm">
     <fieldset>
-        <legend>Another cooler example</legend>
+        <legend>A cooler example</legend>
+        <p>
+            An examples that combines all the above to showcase a very common use case in our web applications:
+        </p>
         <sf:label path="countryCode" for="countryCode2">
             Country Code:
         </sf:label>

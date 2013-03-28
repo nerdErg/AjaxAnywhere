@@ -7,6 +7,9 @@
 <sf:form action="${action}" method="post" commandName="countryForm" id="countryForm">
     <fieldset>
         <legend>Ajaxify select inputs</legend>
+        <p>
+            This is the classic examples of dependable drop down lists, With AjaxAnywhere is extremely easy and clean to implement:
+        </p>
         <sf:label path="continentCode" for="continentCode">
             Select Continent:
         </sf:label>

@@ -6,6 +6,9 @@
 <form action="${action}" method="post">
     <fieldset>
         <legend>Ajaxify form buttons</legend>
+        <p>
+            Next we can see how to "ajaxify" the form buttons individually and specifying the zones to refresh for each of them:
+        </p>
         <label>Type something:</label>
         <input type="text" name="someText" value="">
         <div>
