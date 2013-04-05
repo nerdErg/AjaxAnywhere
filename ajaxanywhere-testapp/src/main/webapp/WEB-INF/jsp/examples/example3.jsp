@@ -48,7 +48,7 @@
     <aa:zone id="codeZone">
         <c:if test="${not empty code}">
             <label><strong>JSP Code:</strong></label>
-            <pre class="brush: html; highlight: [3,13,20,21,33,40,45]">${code}</pre>
+            <pre class="brush: html; highlight: [3,16,23,24,36,43,48]">${code}</pre>
             <a class="btn btn-danger closeCode scroll" href="#example3"><i class="ui-icon-close"></i>Hide Code</a>
             <script>
                 $("div#code3Layer").hide()
