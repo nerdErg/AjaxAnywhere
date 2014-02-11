@@ -18,14 +18,15 @@
     <link rel="icon" href="<c:url value="/img/favicon.ico"/>" type="image/x-icon">
 
     <link rel="stylesheet" href="<c:url value="/css/jquery-ui-themes/redmond/jquery-ui-1.10.0.custom.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/bootstrap-2.2.2.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/bootstrap-2.2.2-responsive.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="webjars/bootstrap/2.2.2/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="webjars/bootstrap/2.2.2/css/bootstrap-responsive.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 
-    <script src="<c:url value="/js/jquery/jquery-1.9.1.min.js"/>"></script>
+    <script src="<c:url value="webjars/jquery/1.9.1/jquery.min.js"/>"></script>
+    <script src="<c:url value="webjars/bootstrap/2.2.2/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/js/jquery/plugins/jquery-ui-1.10.0.custom.min.js"/>"></script>
-    <script src="<c:url value="/js/modernizer/modernizr-2.6.2-respond-1.1.0.min.js"/>"></script>
+    <%--<script src="<c:url value="/js/modernizer/modernizr-2.6.2-respond-1.1.0.min.js"/>"></script>--%>
 
     <%-- Add additional header info --%>
     <decorator:head/>
@@ -34,27 +35,24 @@
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
-<div id="wrap">
-    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand home" href="<c:url value="/action/home"/>">AjaxAnywhere (Reloaded)</a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li><a class="examples" href="<c:url value="/action/examples"/>" title="Examples">Examples</a></li>
-                        <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg" title="Documentation">Documentation</a></li>
-                        <li><a href="#" id="grails-plugin" rel="popover">Grails Plugin</a></li>
-                        <li><a href="http://nerderg.com/AjaxAnywhere#download" id="download" target="_nerdErg" title="Download">Download</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand home" href="<c:url value="/action/home"/>">AjaxAnywhere (Reloaded)</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a class="examples" href="<c:url value="/action/examples"/>" title="Examples">Examples</a></li>
+                    <li><a href="http://www.nerderg.com/AjaxAnywhere" target="_nerdErg" title="Documentation">Documentation</a></li>
+                    <li><a href="#" id="grails-plugin" rel="popover">Grails Plugin</a></li>
+                    <li><a href="http://nerderg.com/AjaxAnywhere#download" id="download" target="_nerdErg" title="Download">Download</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
     </div>
+</div>
 
-    <div id="main" class="container clear-top">
-        <decorator:body/>
-    </div>
+<div id="main" class="container clear-top">
+    <decorator:body/>
 </div>
 
 <div class="container">
