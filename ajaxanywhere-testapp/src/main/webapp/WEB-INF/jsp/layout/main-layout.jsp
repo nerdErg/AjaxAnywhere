@@ -18,13 +18,13 @@
     <link rel="icon" href="<c:url value="/img/favicon.ico"/>" type="image/x-icon">
 
     <link rel="stylesheet" href="<c:url value="/css/jquery-ui-themes/redmond/jquery-ui-1.10.0.custom.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="webjars/bootstrap/2.2.2/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="webjars/bootstrap/2.2.2/css/bootstrap-responsive.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/2.2.2/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/2.2.2/css/bootstrap-responsive.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 
-    <script src="<c:url value="webjars/jquery/1.9.1/jquery.min.js"/>"></script>
-    <script src="<c:url value="webjars/bootstrap/2.2.2/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/webjars/jquery/1.9.1/jquery.min.js"/>"></script>
+    <script src="<c:url value="/webjars/bootstrap/2.2.2/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/js/jquery/plugins/jquery-ui-1.10.0.custom.min.js"/>"></script>
     <%--<script src="<c:url value="/js/modernizer/modernizr-2.6.2-respond-1.1.0.min.js"/>"></script>--%>
 
