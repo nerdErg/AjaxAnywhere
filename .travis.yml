@@ -1,0 +1,7 @@
+language: java
+jdk:
+  - oraclejdk7
+
+script:
+  - mvn clean test
+  - mvn -f ./ajaxanywhere-testapp/pom.xml clean heroku:deploy-war

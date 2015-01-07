@@ -1,4 +1,4 @@
-[AjaxAnywhere](http://www.ajaxanywhere.com) (Reloaded)
+[AjaxAnywhere](http://www.ajaxanywhere.com) (Reloaded) [![Travis CI build](https://travis-ci.org/nerdErg/AjaxAnywhere.svg)](https://travis-ci.org/nerdErg/AjaxAnywhere)
 ============
 
 AjaxAnywhere is a Java Ajax framework that enables the developer to **add Ajax behavior to your web application without any Javascript coding**.
