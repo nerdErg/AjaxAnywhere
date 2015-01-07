@@ -1,13 +1,9 @@
 language: java
 jdk:
 - oraclejdk7
+env:
+  global:
+    secure: WmuTTbDn/SStME/rJhHBUVG3PxH4yOv0PdI8JdHN1n/VpLmxTot50LMD4JsqxrVPXqyMdqfufBhN2XokIwh1fvXqeusb6Z3jv2GJitK5in2T+/LTbP4cNYi6M6UQJqVWsLTtsm8j/XC7UUETQJ/2jJ93sLEPmaKLnGdzZjyqAjs=
 script:
 - mvn clean test
 - mvn -f ./ajaxanywhere-testapp/pom.xml clean heroku:deploy-war
-deploy:
-  provider: heroku
-  api_key:
-    secure: fk1QJiv4OpamczfKRiBr+sI+Y/VrXxxGKoiBAWEsB3nDeKGYvmEruQQfhlAcHnV6oL2sgvrPfDuf8DQWBC08ImLs8UN72xGBziVuzJnFp7pd25a1s6iUasPdkjwmLo3CeDR2jq5ohTERBkg7Mp3w60cQyjzkzpAXu7sUUAlwk5o=
-  app: AjaxAnywhere
-  on:
-    repo: nerdErg/AjaxAnywhere
