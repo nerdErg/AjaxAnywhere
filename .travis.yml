@@ -1,7 +1,13 @@
 language: java
 jdk:
-  - oraclejdk7
-
+- oraclejdk7
 script:
-  - mvn clean test
-  - mvn -f ./ajaxanywhere-testapp/pom.xml clean heroku:deploy-war
+- mvn clean test
+- mvn -f ./ajaxanywhere-testapp/pom.xml clean heroku:deploy-war
+deploy:
+  provider: heroku
+  api_key:
+    secure: fk1QJiv4OpamczfKRiBr+sI+Y/VrXxxGKoiBAWEsB3nDeKGYvmEruQQfhlAcHnV6oL2sgvrPfDuf8DQWBC08ImLs8UN72xGBziVuzJnFp7pd25a1s6iUasPdkjwmLo3CeDR2jq5ohTERBkg7Mp3w60cQyjzkzpAXu7sUUAlwk5o=
+  app: AjaxAnywhere
+  on:
+    repo: nerdErg/AjaxAnywhere
