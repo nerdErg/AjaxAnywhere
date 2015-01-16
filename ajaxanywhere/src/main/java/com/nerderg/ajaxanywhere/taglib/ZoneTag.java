@@ -33,10 +33,8 @@ import com.nerderg.ajaxanywhere.AAUtils;
  * description = ""
  */
 public class ZoneTag extends TagSupport {
-    private static final boolean DEFAULT_SKIP_IF_NOT_INCLUDED = false;
 
-    private String id;
-    private boolean skipIfNotIncluded = DEFAULT_SKIP_IF_NOT_INCLUDED;
+    private String id, onLoadFragmentUrl;
 
     public String getId() {
         return id;
@@ -45,21 +43,39 @@ public class ZoneTag extends TagSupport {
     /**
      * @param id String
      * @jsp.attribute required="true"
-     * rtexprvalue="true"
-     * type="java.lang.String"
-     * description="name description"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="d of layer to be refreshed"
      */
     public void setId(String id) {
         this.id = id;
     }
 
+    public String getOnLoadFragmentUrl() {
+        return onLoadFragmentUrl;
+    }
+
+    /**
+     * @param onLoadFragmentUrl String
+     * @jsp.attribute required="false"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="url to get content when page is loaded"
+     */
+    public void setOnLoadFragmentUrl(String onLoadFragmentUrl) {
+        this.onLoadFragmentUrl = onLoadFragmentUrl;
+    }
+
     public int doStartTag() throws JspException {
         try {
-            pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id));
+            if (onLoadFragmentUrl != null && onLoadFragmentUrl.trim().length() > 0) {
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, onLoadFragmentUrl));
+            } else {
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id));
+            }
 
             ServletRequest request = pageContext.getRequest();
-            if (skipIfNotIncluded
-                    && AAUtils.isjQueryAjaxRequest(request)
+            if (AAUtils.isjQueryAjaxRequest(request)
                     && !AAUtils.getZonesToRefresh(request).contains(id)
                     ) {
                 return SKIP_BODY;
@@ -86,22 +102,6 @@ public class ZoneTag extends TagSupport {
 
 
     public void setPageContext(PageContext pageContext) {
-        skipIfNotIncluded = DEFAULT_SKIP_IF_NOT_INCLUDED;
         super.setPageContext(pageContext);
-    }
-
-    public boolean isSkipIfNotIncluded() {
-        return skipIfNotIncluded;
-    }
-
-    /**
-     * @param skipIfNotIncluded boolean
-     * @jsp.attribute required="false"
-     * rtexprvalue="true"
-     * type="boolean"
-     * description="if the zone is not in the include list, tag content is not evaluated."
-     */
-    public void setSkipIfNotIncluded(boolean skipIfNotIncluded) {
-        this.skipIfNotIncluded = skipIfNotIncluded;
     }
 }

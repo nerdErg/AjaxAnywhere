@@ -16,6 +16,10 @@
  */
 
 /**
+ * version: 2.1
+ */
+
+/**
  * Global Object container
  * @type {{}}
  */
@@ -49,7 +53,7 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
         success: this.handleSuccessfulRequest,
         error: this.handleError
     });
-}
+};
 
 /**
  * This function handles the submission of the provided link using the jQuery Ajax support and prepares the request to
@@ -70,7 +74,7 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones) {
         success: this.handleSuccessfulRequest,
         error: this.handleError
     });
-}
+};
 
 /**
  * Function to handle successful requests.
@@ -85,7 +89,7 @@ AjaxAnywhere.handleSuccessfulRequest = function (response, status, request) {
     } else {
         AjaxAnywhere.processXmlResponse(request, response);
     }
-}
+};
 
 /**
  * Function to handle unsuccessful requests.
@@ -105,7 +109,7 @@ AjaxAnywhere.handleError = function(request, status, error) {
             alert("Please, disable your pop-up blocker for this site first.");
         }
     }
-}
+};
 
 /**
  * This function parses the XML response to extract each zone to be appended to the corresponding DOM node.
@@ -121,8 +125,7 @@ AjaxAnywhere.processXmlResponse = function(request, response) {
             $("#"+id).html($(zoneNode).text());
         });
     }
-
-}
+};
 
 // Tasks to be performed once the document is loaded
 $(function () {
@@ -166,4 +169,9 @@ $(function () {
         event.preventDefault();
         AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"));
     });
+
+    // Check all the defined refresh zones that need to be loaded automatically when the page loads
+    $("div[on-load-fragment-url]").each(function(){
+        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("on-load-fragment-url"), $(this).attr("id"));
+    })
 });

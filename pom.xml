@@ -1,5 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -7,17 +8,18 @@
         <version>7</version>
     </parent>
 
-	<groupId>com.nerderg.ajaxanywhere</groupId>
-	<artifactId>ajaxanywhere-parent</artifactId>
-	<version>2.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+    <groupId>com.nerderg.ajaxanywhere</groupId>
+    <artifactId>ajaxanywhere-parent</artifactId>
+    <version>2.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-	<name>AjaxAnywhere</name>
+    <name>AjaxAnywhere</name>
     <description>
         This project is a fork of the original AjaxAnywhere project (http://ajaxanywhere.sourceforge.net/)whose aim is:
         - Simplify codebase
         - Use jQuery to implement the required scripts
-        - Avoid the need for the developer to write any javascript at all to apply AjaxAnywhere to any component of the page
+        - Avoid the need for the developer to write any javascript at all to apply AjaxAnywhere to any component of the
+        page
         - Remove JSF support
         - Remove dependency with Java SE HTML parser
     </description>
@@ -31,17 +33,17 @@
         </license>
     </licenses>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
-	<scm>
-		<connection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</connection>
-		<developerConnection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</developerConnection>
+    <scm>
+        <connection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</connection>
+        <developerConnection>scm:git:https://github.com/nerdErg/AjaxAnywhere.git</developerConnection>
         <url>https://github.com/nerdErg/AjaxAnywhere.git</url>
-	  <tag>AjaxAnywhere-2.0</tag>
-  </scm>
+        <tag>AjaxAnywhere-2.1</tag>
+    </scm>
 
     <organization>
         <name>Nerderg</name>
@@ -56,24 +58,24 @@
         </developer>
     </developers>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.4</version>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
@@ -89,7 +91,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.4</version>
+                        <version>1.5</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -105,8 +107,8 @@
         </profile>
     </profiles>
 
-	<modules>
-		<module>ajaxanywhere</module>
+    <modules>
+        <module>ajaxanywhere</module>
         <module>ajaxanywhere-testapp</module>
     </modules>
 </project>

@@ -95,7 +95,7 @@ public class AAUtils {
      * @param bufferResponseWrapper
      * @return
      */
-    static String getZoneContent(String zone, BufferResponseWrapper bufferResponseWrapper) {
+    public static String getZoneContent(String zone, BufferResponseWrapper bufferResponseWrapper) {
         String res = bufferResponseWrapper.findSubstring(getZoneStartDelimiter(zone), getZoneEndDelimiter(zone));
         return res;
     }
@@ -107,6 +107,16 @@ public class AAUtils {
      */
     public static String getZoneStartDelimiter(String zone) {
         return "<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;")  + "\">";
+    }
+
+    /**
+     *
+     * @param zone
+     * @param onLoadFragmentUrl
+     * @return
+     */
+    public static String getZoneStartDelimiter(String zone, String onLoadFragmentUrl) {
+        return "<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" on-load-fragment-url=\"" + onLoadFragmentUrl + "\">";
     }
 
     /**

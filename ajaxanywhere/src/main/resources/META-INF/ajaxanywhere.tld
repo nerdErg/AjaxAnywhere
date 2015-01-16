@@ -19,10 +19,16 @@
             <name>id</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
-
             <type>java.lang.String</type>
-            <description><![CDATA[name description]]></description>
+            <description><![CDATA[id of layer to be refreshed]]></description>
 
+        </attribute>
+        <attribute>
+            <name>onLoadFragmentUrl</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description><![CDATA[url to get content when page is loaded]]></description>
         </attribute>
     </tag>
 
