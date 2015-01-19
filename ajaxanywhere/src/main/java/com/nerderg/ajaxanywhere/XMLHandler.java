@@ -56,8 +56,13 @@ public class XMLHandler {
         for (Iterator iterator = refreshZones.iterator(); iterator.hasNext();) {
             String zone = (String) iterator.next();
             String content = AAUtils.getZoneContent(zone, bufferResponseWrapper);
+            if (content == null && refreshZones.size() == 1) {
+                // This probably means we are working with a page fragment rather than the whole page
+                // In this case we return the whole content
+                content = AAUtils.getWholeContent(bufferResponseWrapper);
+            }
 
-            //if zone added to refresh list but not present in content, then exclude zone info in response
+            // if zone added to refresh list but not present in content, then exclude zone info in response
             if(content == null) {
                 continue;
             }

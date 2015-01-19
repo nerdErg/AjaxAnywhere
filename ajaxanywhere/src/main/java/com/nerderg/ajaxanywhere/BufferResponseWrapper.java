@@ -140,6 +140,21 @@ public class BufferResponseWrapper extends HttpServletResponseWrapper {
         return null;
     }
 
+    public String getContent() {
+        String content = null;
+        if (streamBuffer!=null){
+            try {
+                content = streamBuffer.toString("UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                content = streamBuffer.toString();
+            }
+        } else if (writerBuffer!=null) {
+            content = writerBuffer.toString();
+        }
+
+        return content;
+    }
+
     public void setContentType(String string) {
         // do nothing
     }

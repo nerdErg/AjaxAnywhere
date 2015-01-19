@@ -96,8 +96,11 @@ public class AAUtils {
      * @return
      */
     public static String getZoneContent(String zone, BufferResponseWrapper bufferResponseWrapper) {
-        String res = bufferResponseWrapper.findSubstring(getZoneStartDelimiter(zone), getZoneEndDelimiter(zone));
-        return res;
+        return bufferResponseWrapper.findSubstring(getZoneStartDelimiter(zone), getZoneEndDelimiter(zone));
+    }
+
+    public static String getWholeContent(BufferResponseWrapper bufferResponseWrapper) {
+        return bufferResponseWrapper.getContent();
     }
 
     /**
