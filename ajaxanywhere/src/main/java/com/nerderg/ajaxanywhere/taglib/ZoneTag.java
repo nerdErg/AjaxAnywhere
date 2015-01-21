@@ -34,7 +34,7 @@ import com.nerderg.ajaxanywhere.AAUtils;
  */
 public class ZoneTag extends TagSupport {
 
-    private String id, onLoadFragmentUrl;
+    private String id, fragmentUrl, jsBefore, jsAfter;
 
     public String getId() {
         return id;
@@ -45,31 +45,61 @@ public class ZoneTag extends TagSupport {
      * @jsp.attribute required="true"
      * @jsp.attribute rtexprvalue="true"
      * @jsp.attribute type="java.lang.String"
-     * @jsp.attribute description="d of layer to be refreshed"
+     * @jsp.attribute description="id of layer to be refreshed"
      */
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getOnLoadFragmentUrl() {
-        return onLoadFragmentUrl;
+    public String getFragmentUrl() {
+        return fragmentUrl;
+    }
+
+    public String getJsBefore() {
+        return jsBefore;
     }
 
     /**
-     * @param onLoadFragmentUrl String
+     * @param jsBefore String
+     * @jsp.attribute required="false"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="javascript that will get evaluated before the Ajax request"
+     */
+    public void setJsBefore(String jsBefore) {
+        this.jsBefore = jsBefore;
+    }
+
+    public String getJsAfter() {
+        return jsAfter;
+    }
+
+    /**
+     * @param jsAfter String
+     * @jsp.attribute required="false"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="javascript that will get evaluated after the Ajax request"
+     */
+    public void setJsAfter(String jsAfter) {
+        this.jsAfter = jsAfter;
+    }
+
+    /**
+     * @param fragmentUrl String
      * @jsp.attribute required="false"
      * @jsp.attribute rtexprvalue="true"
      * @jsp.attribute type="java.lang.String"
      * @jsp.attribute description="url to get content when page is loaded"
      */
-    public void setOnLoadFragmentUrl(String onLoadFragmentUrl) {
-        this.onLoadFragmentUrl = onLoadFragmentUrl;
+    public void setFragmentUrl(String fragmentUrl) {
+        this.fragmentUrl = fragmentUrl;
     }
 
     public int doStartTag() throws JspException {
         try {
-            if (onLoadFragmentUrl != null && onLoadFragmentUrl.trim().length() > 0) {
-                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, onLoadFragmentUrl));
+            if (fragmentUrl != null && fragmentUrl.trim().length() > 0) {
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, fragmentUrl, jsBefore, jsAfter));
             } else {
                 pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id));
             }

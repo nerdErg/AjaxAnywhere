@@ -21,14 +21,34 @@
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
             <description><![CDATA[id of layer to be refreshed]]></description>
-
         </attribute>
+
         <attribute>
-            <name>onLoadFragmentUrl</name>
+            <name>fragmentUrl</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
             <description><![CDATA[url to get content when page is loaded]]></description>
+        </attribute>
+
+        <attribute>
+            <name>jsBefore</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>
+                <![CDATA[javascript that will get evaluated before the Ajax request]]>
+            </description>
+        </attribute>
+
+        <attribute>
+            <name>jsAfter</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description>
+                <![CDATA[javascript that will get evaluated before the Ajax request]]>
+            </description>
         </attribute>
     </tag>
 

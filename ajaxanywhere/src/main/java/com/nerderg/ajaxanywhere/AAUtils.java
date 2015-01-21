@@ -115,11 +115,22 @@ public class AAUtils {
     /**
      *
      * @param zone
-     * @param onLoadFragmentUrl
+     * @param fragmentUrl
      * @return
      */
-    public static String getZoneStartDelimiter(String zone, String onLoadFragmentUrl) {
-        return "<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" on-load-fragment-url=\"" + onLoadFragmentUrl + "\">";
+    public static String getZoneStartDelimiter(String zone, String fragmentUrl, String jsBefore , String jsAfter) {
+        StringBuilder sb = new StringBuilder("<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
+
+        if (jsBefore != null && !jsBefore.trim().equals("")) {
+            sb.append(" js-before=\"" + jsBefore + "\"");
+        }
+
+        if (jsAfter != null && !jsAfter.trim().equals("")) {
+            sb.append(" js-after=\"" + jsAfter + "\"");
+        }
+
+        sb.append(">");
+        return sb.toString();
     }
 
     /**
