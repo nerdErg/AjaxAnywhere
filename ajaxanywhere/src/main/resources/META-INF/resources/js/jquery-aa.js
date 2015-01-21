@@ -60,6 +60,8 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
 
     // We merge the dynamically params that might or might not been added at runtime
     $.extend(params, this.dynamicParams);
+    // Reset for next request
+    this.dynamicParams = {}
 
     $.ajax({
         url: $(parentForm).attr("action"),
@@ -94,6 +96,8 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, jsBefore, jsA
 
     // We merge the dynamically params that might or might not been added at runtime
     $.extend(params, this.dynamicParams);
+    // Reset for next request
+    this.dynamicParams = {}
 
     $.ajax({
         url: href,
