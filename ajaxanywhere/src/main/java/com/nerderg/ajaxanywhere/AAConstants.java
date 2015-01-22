@@ -21,15 +21,14 @@ package com.nerderg.ajaxanywhere;
  */
 public interface AAConstants {
 
-    String REFRESH_ZONES_KEY = "AjaxAnywhere.refreshZones";
-
     String AJAX_HEADER_INDENTIFIER_VALUE = "XMLHttpRequest";
     String AJAX_HEADER_INDENTIFIER_KEY = "X-Requested-With";
 
     String ZONES_URL_KEY = "aazones";
+    String ZONES_TAGS_KEY = "aatags";
 
     String END_OF_ZONE_PREFIX = "<!-- @end of zone [";
-    String END_OF_ZONE_SUFFIX = "]@ --></div>";
+    String END_OF_ZONE_SUFFIX = "]@ -->";
 
     //constants used in the XML content returned to the client
     String AA_XML_ZONES = "zones";

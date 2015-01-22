@@ -56,12 +56,13 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
         params[$(event.target).attr('name')] = $(event.target).val();
     }
     // Zones to refresh is also a request parameter
-    params["aazones"] =  refreshZones;
+    params["aazones"] = refreshZones;
+    params["aatags"] = this.retrieveTags(refreshZones);
 
     // We merge the dynamically params that might or might not been added at runtime
     $.extend(params, this.dynamicParams);
     // Reset for next request
-    this.dynamicParams = {}
+    this.dynamicParams = {};
 
     $.ajax({
         url: $(parentForm).attr("action"),
@@ -93,11 +94,12 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, jsBefore, jsA
 
     // Zones to refresh is also a request parameter
     params["aazones"] =  refreshZones;
+    params["aatags"] = this.retrieveTags(refreshZones);
 
     // We merge the dynamically params that might or might not been added at runtime
     $.extend(params, this.dynamicParams);
     // Reset for next request
-    this.dynamicParams = {}
+    this.dynamicParams = {};
 
     $.ajax({
         url: href,
@@ -109,6 +111,20 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, jsBefore, jsA
         },
         error: this.handleError
     });
+};
+
+/**
+ * Returns comma separated html tags for each refresh zone id
+ * @param refreshZones
+ * @returns {string}
+ */
+AjaxAnywhere.retrieveTags = function(refreshZones) {
+    var zonesArray = refreshZones.split(',');
+    var tagsArray = []
+    $.each(zonesArray, function(index, value) {
+        tagsArray.push($('#'+value).prop('tagName'));
+    });
+    return tagsArray.join(',');
 };
 
 /**
@@ -210,7 +226,7 @@ $(function () {
     });
 
     // Check all the defined refresh zones that need to be loaded automatically when the page loads
-    $("div[fragment-url]").each(function(){
+    $("[fragment-url]").each(function(){
         AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("fragment-url"), $(this).attr("id"), $(this).attr("js-before"), $(this).attr("js-after"));
     })
 });

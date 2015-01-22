@@ -17,6 +17,7 @@
 package com.nerderg.ajaxanywhere.taglib;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.jsp.JspException;
@@ -24,6 +25,7 @@ import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import com.nerderg.ajaxanywhere.AAUtils;
+import static com.nerderg.ajaxanywhere.AAConstants.*;
 
 /**
  * @author Angel Ruiz (aruizca@gmail.com)
@@ -34,7 +36,7 @@ import com.nerderg.ajaxanywhere.AAUtils;
  */
 public class ZoneTag extends TagSupport {
 
-    private String id, fragmentUrl, jsBefore, jsAfter;
+    private String id, tag, fragmentUrl, jsBefore, jsAfter;
 
     public String getId() {
         return id;
@@ -49,6 +51,20 @@ public class ZoneTag extends TagSupport {
      */
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getTag() {
+        return tag != null && !tag.trim().equals("") ? tag : "div";
+    }
+    /**
+     * @param tag String
+     * @jsp.attribute required="false"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="html inline or block element tag to be generated instead of the default DIV block tag"
+     */
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String getFragmentUrl() {
@@ -99,14 +115,14 @@ public class ZoneTag extends TagSupport {
     public int doStartTag() throws JspException {
         try {
             if (fragmentUrl != null && fragmentUrl.trim().length() > 0) {
-                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, fragmentUrl, jsBefore, jsAfter));
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, getTag(), fragmentUrl, jsBefore, jsAfter));
             } else {
-                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id));
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, getTag()));
             }
 
             ServletRequest request = pageContext.getRequest();
             if (AAUtils.isjQueryAjaxRequest(request)
-                    && !AAUtils.getZonesToRefresh(request).contains(id)
+                    && !Arrays.asList(AAUtils.getCommaSeparatedValuesAsStringArray(request, ZONES_URL_KEY)).contains(id)
                     ) {
                 return SKIP_BODY;
             } else {
@@ -119,7 +135,7 @@ public class ZoneTag extends TagSupport {
 
     public int doEndTag() throws JspException {
         try {
-            pageContext.getOut().print(AAUtils.getZoneEndDelimiter(id));
+            pageContext.getOut().print(AAUtils.getZoneEndDelimiter(id, getTag()));
         } catch (IOException e) {
             throw new JspException(e);
         }

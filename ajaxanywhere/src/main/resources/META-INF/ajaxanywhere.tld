@@ -24,6 +24,14 @@
         </attribute>
 
         <attribute>
+            <name>tag</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <description><![CDATA[html inline or block element tag to be generated instead of the default DIV block tag]]></description>
+        </attribute>
+
+        <attribute>
             <name>fragmentUrl</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>

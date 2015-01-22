@@ -49,14 +49,16 @@ public class XMLHandler {
      * @param bufferResponseWrapper
      * @param refreshZones
      */
-    public static void sendZones(BufferResponseWrapper bufferResponseWrapper, Set refreshZones) {
+    public static void sendZones(BufferResponseWrapper bufferResponseWrapper, String[] refreshZones, String[] refreshZoneTags) {
         Document doc = newDocument();
         Element root = addRootElement(doc, AAConstants.AA_XML_ZONES);
 
-        for (Iterator iterator = refreshZones.iterator(); iterator.hasNext();) {
-            String zone = (String) iterator.next();
-            String content = AAUtils.getZoneContent(zone, bufferResponseWrapper);
-            if (content == null && refreshZones.size() == 1) {
+        for (int i = 0; i <= refreshZones.length; i++) {
+
+            String zone = refreshZones[i];
+            String tag = refreshZoneTags[i];
+            String content = AAUtils.getZoneContent(zone, tag, bufferResponseWrapper);
+            if (content == null && refreshZones.length == 1) {
                 // This probably means we are working with a page fragment rather than the whole page
                 // In this case we return the whole content
                 content = AAUtils.getWholeContent(bufferResponseWrapper);

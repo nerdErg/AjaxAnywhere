@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static com.nerderg.ajaxanywhere.AAConstants.*;
 
 /**
  * @author Angel Ruiz (aruizca@gmail.com)
@@ -69,7 +70,7 @@ public class AAFilter implements Filter {
                 filterChain.doFilter(request, bufferResponseWrapper);
 
                 if (bufferResponseWrapper.getRedirect() == null) {
-                    XMLHandler.sendZones(bufferResponseWrapper, AAUtils.getZonesToRefresh(request));
+                    XMLHandler.sendZones(bufferResponseWrapper, AAUtils.getCommaSeparatedValuesAsStringArray(request, ZONES_URL_KEY), AAUtils.getCommaSeparatedValuesAsStringArray(request, ZONES_TAGS_KEY));
                 } else {
                     XMLHandler.sendRedirect(bufferResponseWrapper);
                 }

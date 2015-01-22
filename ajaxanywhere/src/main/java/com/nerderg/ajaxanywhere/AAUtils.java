@@ -18,10 +18,8 @@ package com.nerderg.ajaxanywhere;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
+import static com.nerderg.ajaxanywhere.AAConstants.*;
 
 /**
  * @author Angel Ruiz (aruizca@gmail.com)
@@ -34,7 +32,7 @@ public class AAUtils {
      * @return
      */
     public static boolean isAjaxAnywhereRequest(ServletRequest servletRequest) {
-        return isjQueryAjaxRequest(servletRequest) && !getZonesToRefresh(servletRequest).isEmpty();
+        return isjQueryAjaxRequest(servletRequest) && getCommaSeparatedValuesAsStringArray(servletRequest, ZONES_URL_KEY).length > 0;
     }
 
     /**
@@ -50,53 +48,28 @@ public class AAUtils {
     /**
      *
      * @param request
-     * @param commaSeparatedZonesList
-     */
-    private static void addZonesToRefresh(ServletRequest request, String commaSeparatedZonesList) {
-        Set res = getZonesToRefresh(request);
-        if (res != null) {
-            StringTokenizer st = new StringTokenizer(commaSeparatedZonesList, ",", false);
-            while (st.hasMoreTokens()) res.add(st.nextToken().trim());
-        }
-    }
-
-    /**
-     *
-     * @param request
+     * @param parameterKey
      * @return
      */
-    public static Set getZonesToRefresh(ServletRequest request) {
-        if (request.getAttribute(AAConstants.REFRESH_ZONES_KEY) == null) {
-            request.setAttribute(AAConstants.REFRESH_ZONES_KEY, new HashSet());
-            getRefreshZonesFromRequest(request);
+    public static String[] getCommaSeparatedValuesAsStringArray(ServletRequest request, String parameterKey) {
+        String commaSeparatedValue = request.getParameter(parameterKey);
+        String[] values = null;
+        if (commaSeparatedValue != null) {
+            values = commaSeparatedValue.split("\\s*,\\s*");
         }
 
-        Set zonesToRefresh = (Set)request.getAttribute(AAConstants.REFRESH_ZONES_KEY);
-        return zonesToRefresh;
-    }
-
-    /**
-     *
-     * @param request
-     */
-    private static void getRefreshZonesFromRequest(ServletRequest request) {
-        String[] zones = request.getParameterValues(AAConstants.ZONES_URL_KEY);
-        if (zones != null) {
-            for (int i1 = 0; zones != null && i1 < zones.length; i1++) {
-                String zone1 = zones[i1].trim();
-                addZonesToRefresh(request, zone1);
-            }
-        }
+        return values;
     }
 
     /**
      *
      * @param zone
+     * @param tag
      * @param bufferResponseWrapper
      * @return
      */
-    public static String getZoneContent(String zone, BufferResponseWrapper bufferResponseWrapper) {
-        return bufferResponseWrapper.findSubstring(getZoneStartDelimiter(zone), getZoneEndDelimiter(zone));
+    public static String getZoneContent(String zone, String tag, BufferResponseWrapper bufferResponseWrapper) {
+        return bufferResponseWrapper.findSubstring(getZoneStartDelimiter(zone, tag), getZoneEndDelimiter(zone, tag));
     }
 
     public static String getWholeContent(BufferResponseWrapper bufferResponseWrapper) {
@@ -108,18 +81,21 @@ public class AAUtils {
      * @param zone
      * @return
      */
-    public static String getZoneStartDelimiter(String zone) {
-        return "<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;")  + "\">";
+    public static String getZoneStartDelimiter(String zone, String tag) {
+        return "<" + tag + " style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;")  + "\">";
     }
 
     /**
      *
      * @param zone
+     * @param tag
      * @param fragmentUrl
+     * @param jsBefore
+     * @param jsAfter
      * @return
      */
-    public static String getZoneStartDelimiter(String zone, String fragmentUrl, String jsBefore , String jsAfter) {
-        StringBuilder sb = new StringBuilder("<div style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
+    public static String getZoneStartDelimiter(String zone, String tag, String fragmentUrl, String jsBefore , String jsAfter) {
+        StringBuilder sb = new StringBuilder("<" + tag + " style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
 
         if (jsBefore != null && !jsBefore.trim().equals("")) {
             sb.append(" js-before=\"" + jsBefore + "\"");
@@ -138,8 +114,8 @@ public class AAUtils {
      * @param zone
      * @return
      */
-    public static String getZoneEndDelimiter(String zone) {
-        return AAConstants.END_OF_ZONE_PREFIX+zone+AAConstants.END_OF_ZONE_SUFFIX;
+    public static String getZoneEndDelimiter(String zone, String tag) {
+        return END_OF_ZONE_PREFIX + zone + END_OF_ZONE_SUFFIX + "</" + tag + ">";
     }
 
 }
