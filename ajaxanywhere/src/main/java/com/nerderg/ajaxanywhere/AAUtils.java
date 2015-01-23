@@ -18,7 +18,7 @@ package com.nerderg.ajaxanywhere;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+
 import static com.nerderg.ajaxanywhere.AAConstants.*;
 
 /**
@@ -53,9 +53,9 @@ public class AAUtils {
      */
     public static String[] getCommaSeparatedValuesAsStringArray(ServletRequest request, String parameterKey) {
         String commaSeparatedValue = request.getParameter(parameterKey);
-        String[] values = null;
+        String[] values = new String[0];
         if (commaSeparatedValue != null) {
-            values = commaSeparatedValue.split("\\s*,\\s*");
+            values = commaSeparatedValue.trim().split("\\s*,\\s*");
         }
 
         return values;
@@ -82,7 +82,15 @@ public class AAUtils {
      * @return
      */
     public static String getZoneStartDelimiter(String zone, String tag) {
-        return "<" + tag + " style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;")  + "\">";
+        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\"");
+
+        if (tag.toLowerCase().equals("div")) {
+            sb.append(" style=\"display:inline;\"");
+        }
+
+        sb.append(">");
+
+        return sb.toString();
     }
 
     /**
@@ -95,7 +103,11 @@ public class AAUtils {
      * @return
      */
     public static String getZoneStartDelimiter(String zone, String tag, String fragmentUrl, String jsBefore , String jsAfter) {
-        StringBuilder sb = new StringBuilder("<" + tag + " style=\"display:inline;\" id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
+        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
+
+        if (tag.toLowerCase().equals("div")) {
+            sb.append(" style=\"display:inline;\"");
+        }
 
         if (jsBefore != null && !jsBefore.trim().equals("")) {
             sb.append(" js-before=\"" + jsBefore + "\"");

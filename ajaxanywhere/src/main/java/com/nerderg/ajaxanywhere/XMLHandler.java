@@ -53,7 +53,7 @@ public class XMLHandler {
         Document doc = newDocument();
         Element root = addRootElement(doc, AAConstants.AA_XML_ZONES);
 
-        for (int i = 0; i <= refreshZones.length; i++) {
+        for (int i = 0; i < refreshZones.length; i++) {
 
             String zone = refreshZones[i];
             String tag = refreshZoneTags[i];

@@ -28,7 +28,7 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
-            <description><![CDATA[html inline or block element tag to be generated instead of the default DIV block tag]]></description>
+            <description><![CDATA[html inline or block element tag to be generated instead of the default 'div' block tag]]></description>
         </attribute>
 
         <attribute>
@@ -55,7 +55,7 @@
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
             <description>
-                <![CDATA[javascript that will get evaluated before the Ajax request]]>
+                <![CDATA[javascript that will get evaluated after the successful Ajax request]]>
             </description>
         </attribute>
     </tag>

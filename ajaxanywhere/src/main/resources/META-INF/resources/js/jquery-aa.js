@@ -44,25 +44,13 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
     // The method specified in the form can be override if a method is specified
     method = method ? method : $(parentForm).attr("method");
 
-    var params = {};
 
     if(jsBefore) {
         // Execute javascript before Ajax request
         eval(jsBefore);
     }
 
-    if (event) {
-        // The form element that originated the submission event must be sent as a parameter manually, because the serialize() method cannot do that
-        params[$(event.target).attr('name')] = $(event.target).val();
-    }
-    // Zones to refresh is also a request parameter
-    params["aazones"] = refreshZones;
-    params["aatags"] = this.retrieveTags(refreshZones);
-
-    // We merge the dynamically params that might or might not been added at runtime
-    $.extend(params, this.dynamicParams);
-    // Reset for next request
-    this.dynamicParams = {};
+    var params = this.initParams(refreshZones, event);
 
     $.ajax({
         url: $(parentForm).attr("action"),
@@ -85,21 +73,12 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
  * @param jsAfter [optional]
  */
 AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, jsBefore, jsAfter) {
-    var params = {};
-
     if(jsBefore) {
         // Execute javascript before Ajax request
         eval(jsBefore);
     }
 
-    // Zones to refresh is also a request parameter
-    params["aazones"] =  refreshZones;
-    params["aatags"] = this.retrieveTags(refreshZones);
-
-    // We merge the dynamically params that might or might not been added at runtime
-    $.extend(params, this.dynamicParams);
-    // Reset for next request
-    this.dynamicParams = {};
+    var params = this.initParams(refreshZones);
 
     $.ajax({
         url: href,
@@ -111,6 +90,29 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, jsBefore, jsA
         },
         error: this.handleError
     });
+};
+
+/**
+ * Initializes the required request parameters for AjaxAnywhere to work
+ * @param refreshZones
+ * @param event [optional]
+ */
+AjaxAnywhere.initParams= function(refreshZones, event) {
+    var params = {};
+    if (event) {
+        // The form element that originated the submission event must be sent as a parameter manually, because the serialize() method cannot do that
+        params[$(event.target).attr('name')] = $(event.target).val();
+    }
+    // Zones to refresh is also a request parameter
+    params["aazones"] = refreshZones;
+    params["aatags"] = this.retrieveTags(refreshZones);
+
+    // We merge the dynamically params that might or might not been added at runtime
+    $.extend(params, this.dynamicParams);
+    // Reset for next request
+    this.dynamicParams = {};
+
+    return params;
 };
 
 /**
@@ -177,7 +179,13 @@ AjaxAnywhere.processXmlResponse = function(request, response) {
     } else {
         $(response).find("zone").each (function(i, zoneNode) {
             var id = $(zoneNode).attr("id");
-            $("#"+id).html($(zoneNode).text());
+            // If the tag of the zone is different from div we will replace the whole tag instead of just the content
+            var tagName = $("#"+id).prop('tagName');
+            if (tagName.toLowerCase() != 'div') {
+                $("#" + id).replaceWith($(zoneNode).text());
+            } else {
+                $("#" + id).html($(zoneNode).text());
+            }
         });
     }
 };

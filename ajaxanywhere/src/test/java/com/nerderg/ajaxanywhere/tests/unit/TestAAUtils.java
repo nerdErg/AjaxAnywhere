@@ -60,4 +60,24 @@ public class TestAAUtils {
         mockHttpServletRequest.addHeader(AJAX_HEADER_INDENTIFIER_KEY, AJAX_HEADER_INDENTIFIER_VALUE);
         assertThat(AAUtils.isjQueryAjaxRequest(mockHttpServletRequest), is(true));
     }
+
+    @Test
+    public void testAjaxRequestIsAnAjaxAnywhereRequest() {
+        assertThat(AAUtils.isAjaxAnywhereRequest(mockHttpServletRequest), is(false));
+
+        mockHttpServletRequest.addHeader(AJAX_HEADER_INDENTIFIER_KEY, AJAX_HEADER_INDENTIFIER_VALUE);
+        mockHttpServletRequest.setParameter("aazones", "whateverZone");
+        mockHttpServletRequest.setParameter("aatags", "tbody");
+
+        assertThat(AAUtils.isAjaxAnywhereRequest(mockHttpServletRequest), is(true));
+    }
+
+    @Test
+    public void testGetCommaSeparatedValuesWithSpacesAsStringArray() {
+        mockHttpServletRequest.setParameter("aazones", " zone1 ,zone2 ");
+        mockHttpServletRequest.setParameter("aatags", " div , tbody ");
+
+        assertThat(AAUtils.getCommaSeparatedValuesAsStringArray(mockHttpServletRequest, ZONES_URL_KEY), is(new String[] {"zone1", "zone2"}));
+        assertThat(AAUtils.getCommaSeparatedValuesAsStringArray(mockHttpServletRequest, ZONES_TAGS_KEY), is(new String[] {"div", "tbody"}));
+    }
 }
