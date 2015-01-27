@@ -223,8 +223,7 @@ $(function () {
         event.preventDefault();
         // Find parent form
         var parentForm = this.form;
-        // Submit Form with AjaxAnywhere attributes
-        AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"), $(this).attr("js-before"), $(this).attr("js-after"));
+        // Submit Form with cada AjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"), $(this).attr("js-before"), $(this).attr("js-after"));
     });
 
     // Check for all the AjaxAnywhere enabled links or elements
