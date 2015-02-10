@@ -122,9 +122,9 @@ AjaxAnywhere.initParams= function(refreshZones, event) {
  */
 AjaxAnywhere.retrieveTags = function(refreshZones) {
     var zonesArray = refreshZones.split(',');
-    var tagsArray = []
+    var tagsArray = [];
     $.each(zonesArray, function(index, value) {
-        tagsArray.push($('#'+value).prop('tagName'));
+        tagsArray.push($('#'+value).prop('tagName').toLowerCase());
     });
     return tagsArray.join(',');
 };
@@ -155,17 +155,9 @@ AjaxAnywhere.handleSuccessfulRequest = function (response, status, request, jsAf
  * @param error
  */
 AjaxAnywhere.handleError = function(request, status, error) {
-    var details = confirm("AjaxAnywhere default error handler. XMLHttpRequest HTTP Error code:" + status + " \n\n Would you like to view the response content in a new window?");
-    if (details) {
-        var win = window.open("", this.id + "_debug_window");
-        if (win != null) {
-            win.document.write("<html><body><xmp>" + request.responseText);
-            win.document.close();
-            win.focus();
-        } else {
-            alert("Please, disable your pop-up blocker for this site first.");
-        }
-    }
+    console.log('Error: ' + error);
+    console.log('Status: ' + request.status);
+    console.log('Response: ' + request.responseText);
 };
 
 /**
@@ -223,13 +215,17 @@ $(function () {
         event.preventDefault();
         // Find parent form
         var parentForm = this.form;
-        // Submit Form with cada AjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"), $(this).attr("js-before"), $(this).attr("js-after"));
+        // Submit Form with AjaxAnywhere attributes
+        AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"), $(this).attr("js-before"), $(this).attr("js-after"));
     });
 
     // Check for all the AjaxAnywhere enabled links or elements
     $(document).on("click", "[aa-refresh-zones]", function(event) {
         event.preventDefault();
-        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("js-before"), $(this).attr("js-after"));
+        // These elements have already been taken care of
+        if (!$(this).is("form, input, button")) {
+            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("js-before"), $(this).attr("js-after"));
+        }
     });
 
     // Check all the defined refresh zones that need to be loaded automatically when the page loads
