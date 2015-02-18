@@ -13,7 +13,7 @@
     <name>AjaxAnywhere Test App</name>
 
     <properties>
-        <org.springframework.version>3.2.0.RELEASE</org.springframework.version>
+        <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
     </properties>
 
     <build>
@@ -23,8 +23,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.nerderg.ajaxanywhere</groupId>
             <artifactId>ajaxanywhere</artifactId>
-            <version>2.0</version>
+            <version>${project.version}</version>
         </dependency>
 
         <!--Logging-->
@@ -144,7 +144,19 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
-            <version>1.9.1</version>
+            <version>1.11.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.11.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-ui-themes</artifactId>
+            <version>1.11.3</version>
         </dependency>
     </dependencies>
 

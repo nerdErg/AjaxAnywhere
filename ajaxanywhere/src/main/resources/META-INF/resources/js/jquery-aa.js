@@ -45,7 +45,6 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
     // The method specified in the form can be override if a method is specified
     method = method ? method : $(parentForm).attr("method");
 
-
     if(jsBefore) {
         // Execute javascript before Ajax request
         eval(jsBefore);
@@ -213,9 +212,9 @@ $(function () {
     // be serialized and sent in the Ajax request
     $(document).on("click", "form[aa-refresh-zones] input[type='submit'], form[aa-refresh-zones] input[type='image'], form[aa-refresh-zones] button[type='submit']", function(event) {
         event.preventDefault();
-        var parentForm = this.form;
+        var parentForm = $(this).closest('form ');
         // Submit Form with AjaxAnywhere attributes
-        AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(parentForm).attr("aa-refresh-zones"), event, $(parentForm).attr("method"), $(parentForm).attr("aa-js-before"), $(parentForm).attr("aa-js-after"));
+        AjaxAnywhere.submitAjaxAnywhereForm(parentForm, parentForm.attr("aa-refresh-zones"), event, parentForm.attr("method"), parentForm.attr("aa-js-before"), parentForm.attr("aa-js-after"));
     });
 
     $(document).on("submit", "form[aa-refresh-zones]", function (event){

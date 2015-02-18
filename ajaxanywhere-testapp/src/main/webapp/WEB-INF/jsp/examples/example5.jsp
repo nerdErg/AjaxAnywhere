@@ -31,22 +31,25 @@
 </div>
 
 <script>
-    $("div#country-search-dialog").dialog({
-        autoOpen: false,
-        modal: true,
-        title: 'Search Country',
-        resizable: false,
-        width: 500,
-        height: 527,
-        maxHeight: 600
-    });
-
-    $("a#search-country-button").click(function(event){
-        event.preventDefault();
-        $.post("<c:url value="/action/examples/dialog"/>", function(data) {
-            $("div#country-search-dialog").html(data);
+    $(function () {
+        $("div#country-search-dialog").dialog({
+            autoOpen: false,
+            modal: true,
+            title: 'Search Country',
+            resizable: false,
+            width: 500,
+            height: 527,
+            maxHeight: 600
         });
 
-        $("div#country-search-dialog").dialog("open");
+        $("a#search-country-button").click(function (event) {
+            event.preventDefault();
+            $.post("<c:url value="/action/examples/dialog"/>", function (data) {
+                $("div#country-search-dialog").html(data);
+            });
+
+            $("div#country-search-dialog").dialog("open");
+        });
+
     });
 </script>
