@@ -103,18 +103,18 @@ public class AAUtils {
      * @return
      */
     public static String getZoneStartDelimiter(String zone, String tag, String fragmentUrl, String jsBefore , String jsAfter) {
-        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\" fragment-url=\"" + fragmentUrl + "\"");
+        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\" aa-fragment-url=\"" + fragmentUrl + "\"");
 
         if (tag.toLowerCase().equals("div")) {
             sb.append(" style=\"display:inline;\"");
         }
 
         if (jsBefore != null && !jsBefore.trim().equals("")) {
-            sb.append(" js-before=\"" + jsBefore + "\"");
+            sb.append(" aa-js-before=\"" + jsBefore + "\"");
         }
 
         if (jsAfter != null && !jsAfter.trim().equals("")) {
-            sb.append(" js-after=\"" + jsAfter + "\"");
+            sb.append(" aa-js-after=\"" + jsAfter + "\"");
         }
 
         sb.append(">");

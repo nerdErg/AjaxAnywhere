@@ -63,7 +63,7 @@ public class TestZoneTagLib {
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" js-before=\"beforeJs();\" js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
@@ -83,7 +83,7 @@ public class TestZoneTagLib {
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
@@ -103,7 +103,7 @@ public class TestZoneTagLib {
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" js-before=\"beforeJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
