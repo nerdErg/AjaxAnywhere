@@ -146,7 +146,7 @@ AjaxAnywhere.retrieveTags = function(refreshZones) {
     var zonesArray = refreshZones.split(',');
     var tagsArray = [];
     $.each(zonesArray, function(index, value) {
-        tagsArray.push($('#'+value).prop('tagName').toLowerCase());
+        tagsArray.push($('#' + value.trim()).prop('tagName').toLowerCase());
     });
     return tagsArray.join(',');
 };
@@ -236,7 +236,7 @@ $(function () {
     $(document).on("change", "select[aa-refresh-zones]", function(event) {
         event.preventDefault();
         // Find parent form
-        var parentForm = this.form;
+        var parentForm = $(this).closest('form');
         // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), null, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
     });
