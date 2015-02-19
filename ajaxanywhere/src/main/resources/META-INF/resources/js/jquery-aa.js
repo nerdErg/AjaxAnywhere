@@ -212,7 +212,7 @@ $(function () {
     // be serialized and sent in the Ajax request
     $(document).on("click", "form[aa-refresh-zones] input[type='submit'], form[aa-refresh-zones] input[type='image'], form[aa-refresh-zones] button[type='submit']", function(event) {
         event.preventDefault();
-        var parentForm = $(this).closest('form ');
+        var parentForm = $(this).closest('form');
         // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, parentForm.attr("aa-refresh-zones"), event, parentForm.attr("method"), parentForm.attr("aa-js-before"), parentForm.attr("aa-js-after"));
     });
@@ -227,7 +227,7 @@ $(function () {
     $(document).on("click", "input[type='submit'][aa-refresh-zones], input[type='image'][aa-refresh-zones], button[type='submit'][aa-refresh-zones]", function(event) {
         event.preventDefault();
         // Find parent form
-        var parentForm = this.form;
+        var parentForm = $(this).closest('form');
         // Submit Form with AjaxAnywhere attributes
         AjaxAnywhere.submitAjaxAnywhereForm(parentForm, $(this).attr("aa-refresh-zones"), event, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
     });
