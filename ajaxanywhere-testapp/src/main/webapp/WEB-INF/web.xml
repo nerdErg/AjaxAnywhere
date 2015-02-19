@@ -72,17 +72,6 @@
         <url-pattern>/ajax/*</url-pattern>
     </servlet-mapping>
 
-    <!-- Cloudbees still does not support Servlet 3.0 JAR static resource loading -->
-    <servlet>
-        <servlet-name>AAResourcesServlet</servlet-name>
-        <servlet-class>com.nerderg.ajaxanywhere.servlet.StaticResourcesServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AAResourcesServlet</servlet-name>
-        <url-pattern>/js/jquery-aa.js</url-pattern>
-    </servlet-mapping>
-
     <welcome-file-list>
         <welcome-file>action/home</welcome-file>
     </welcome-file-list>

@@ -19,7 +19,7 @@ import java.io.OutputStream;
 
  &lt;servlet-mapping&gt;
      &lt;servlet-name&gt;AAResourcesServlet&lt;/servlet-name&gt;
-     &lt;url-pattern&gt;/js/jquery-aa.js&lt;/url-pattern&gt;
+     &lt;url-pattern&gt;/aa/js/*&lt;/url-pattern&gt;
  &lt;/servlet-mapping&gt;
    </pre>
  * @author Angel Ruiz (aruizca@gmail.com)
