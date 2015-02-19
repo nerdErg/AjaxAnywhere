@@ -245,7 +245,7 @@ $(function () {
     $(document).on("click", "[aa-refresh-zones]", function(event) {
         event.preventDefault();
         // These elements have already been taken care of
-        if (!$(this).is("form, input, button")) {
+        if (!$(this).is("form, input, button, select")) {
             AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
         }
     });
