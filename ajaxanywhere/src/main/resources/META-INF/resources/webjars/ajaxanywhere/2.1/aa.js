@@ -101,7 +101,7 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, queue, jsBefo
  * @param options
  */
 AjaxAnywhere.performAjaxRequest = function(queue, options) {
-  if (queue) {
+  if (queue && $.ajaxq) {
       if (queue == 'abort') {
           $.ajaxq.abort(AjaxAnywhere.aaQueueName);
       } else if (queue == 'clear') {
