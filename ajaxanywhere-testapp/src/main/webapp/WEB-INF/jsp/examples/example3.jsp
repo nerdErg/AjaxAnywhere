@@ -1,49 +1,49 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="mvc"%>
 
 <c:url var="action" value="/action/examples/3" scope="request"/>
-<sf:form action="${action}" method="post" commandName="countryForm" id="countryForm">
+<mvc:form action="${action}" class="form-horizontal" method="post" commandName="countryForm" id="countryForm">
     <fieldset>
         <legend>Ajaxify select inputs</legend>
         <p>
             This is the classic examples of dependable drop down lists, With AjaxAnywhere is extremely easy and clean to implement:
         </p>
-        <sf:label path="continentCode" for="continentCode">
+        <mvc:label path="continentCode" for="continentCode">
             Select Continent:
-        </sf:label>
-        <sf:select path="continentCode" aa-refresh-zones="countryZone, capitalZone" id="continentCode">
-            <sf:option value="">-- Select One --</sf:option>
-            <sf:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
-        </sf:select>
-        <sf:label path="countryCode" for="countryCode">
+        </mvc:label>
+        <mvc:select path="continentCode" aa-refresh-zones="countryZone, capitalZone" id="continentCode">
+            <mvc:option value="">-- Select One --</mvc:option>
+            <mvc:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
+        </mvc:select>
+        <mvc:label path="countryCode" for="countryCode">
             Select Country:
-        </sf:label>
+        </mvc:label>
         <aa:zone id="countryZone">
-        <sf:select path="countryCode" aa-refresh-zones="capitalZone" id="countryCode">
+        <mvc:select path="countryCode" aa-refresh-zones="capitalZone" id="countryCode">
             <c:choose>
                 <c:when test="${empty countryForm.countriesSet}">
                     <option value="">-- Select Continent First --</option>
                 </c:when>
                 <c:otherwise>
-                    <sf:option value="">-- Select One --</sf:option>
-                    <sf:options items="${countryForm.countriesSet}" itemLabel="value" itemValue="key"/>
+                    <mvc:option value="">-- Select One --</mvc:option>
+                    <mvc:options items="${countryForm.countriesSet}" itemLabel="value" itemValue="key"/>
                 </c:otherwise>
             </c:choose>
-        </sf:select>
+        </mvc:select>
         </aa:zone>
         <aa:zone id="capitalZone">
-            <sf:label path="countryCode" for="capital">
+            <mvc:label path="countryCode" for="capital">
                 Capital:
-            </sf:label>
+            </mvc:label>
             <input type="text" value="${countryForm.capital}" readonly="readonly"/>
         </aa:zone>
         <div class="controls">
             <input type="submit" aa-refresh-zones="codeZone" class="btn btn-info" name="showCodeButton" value="Show Code"/>
         </div>
    </fieldset>
-</sf:form>
+</mvc:form>
 <div id="code3Layer" class="codeLayer">
     <aa:zone id="codeZone">
         <c:if test="${not empty code}">

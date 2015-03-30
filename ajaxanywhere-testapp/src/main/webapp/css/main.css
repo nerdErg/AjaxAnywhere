@@ -1,103 +1,6 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-html, body {
-    height: 100%;
-}
 
-
-#main {
-    padding-top: 60px;
-    overflow: auto;
-    padding-bottom: 50px;
-}
-
-body#home a.home {
-    color: #ffffff !important;
-}
-
-body#examples a.examples {
-    color: #ffffff !important;
-}
-
-.navbar a {
-    font-family: 'Special Elite', cursive;
-}
-
-.carousel-inner div {
-    text-align: center;
-}
-
-.carousel-inner div div.carousel-caption {
-    position: relative;
-    text-align: left;
-    margin-top: 1.5em;
-}
-
-
-.carousel-inner > .item > img {
-    display: inline-block;
-}
-
-.footer {
-    text-align: left;
-    height: 150px;
-    padding-right: 20px;
-    padding-left: 20px;
-    vertical-align: middle;
-    padding-top: 20px;
-    border-top: solid 1px #d3d3d3;
-}
-
-.footer span {
-    display: block;
-    font-family: 'Special Elite', cursive;
-    font-size: 1.2em;
-    margin-bottom: .5em;
-}
-
-.footer img.logo {
-    width: 120px;
-}
-
-.footer img.name {
-    width: 230px;
-}
-
-.footer a:hover {
-    text-decoration: none;
-}
-
-a.brand {
-    background: url('../img/ajax-logo.png') no-repeat 20px center;
-    padding-left: 60px !important;
-}
-
-.bs-docs-sidenav .icon-chevron-right {
-    float: right;
-    margin-right: -6px;
-    margin-top: 2px;
-    opacity: 0.25;
-}
-
-.bs-docs-sidenav a {
-    background-color: white;
-}
-
-.bs-docs-sidenav > .active > a,  .bs-docs-sidenav > .active > a:hover{
-    background-color: #0088CC;
-    color: #FFFFFF;
-    border: 1px solid #0088CC !important;
-}
-
-.bs-docs-sidenav > .active > a > i.icon-chevron-right {
-    background-image: url("../img/glyphicons-halflings-white.png");
-    opacity: 1;
-}
-
-div.codeLayer .container:after,
-div.codeLayer .container:before {
-    display: inline !important;
+#examples {
+    margin-top: 1em;
 }
 
 /* Styles related to the display tag pagination links*/
@@ -146,32 +49,19 @@ table.selectable > tbody tr {
     height: 32px;
 }
 
-a#grails-plugin {
-    background: url('../img/grails-icon.png') left 5px no-repeat;
-    padding-left: 30px;
-    margin-left: 5px;
+.tocify-item.active {
+    font-weight: bold;
+    background-color: #0088CC;
 }
 
-footer div#social {
-    display: inline-block;
-    float: right;
-    text-align: center;
+.tocify-item.active a {
+    color: white;
 }
 
-footer div#social a {
-    margin: 0 1.6em;
+.tocify-item.active a:hover {
+    color: inherit;
 }
 
-footer div#social span {
-    display: inline-block;
-    padding-top: 1em;
+.code .container, .gutter {
+    display: inline-block !important;
 }
-
-
-
-
-
-
-
-
-

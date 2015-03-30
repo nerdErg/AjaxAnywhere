@@ -85,7 +85,7 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>action/home</welcome-file>
+        <welcome-file>action/examples</welcome-file>
     </welcome-file-list>
 
 </web-app>

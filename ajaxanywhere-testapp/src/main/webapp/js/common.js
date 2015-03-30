@@ -32,5 +32,14 @@ $(function () {
         html: true,
         delay: {hide: 2000}
 
-    })
+    });
+
+    if ($().tocify) {
+        //Calls the tocify method on your HTML div.
+        $("#toc").tocify({
+            context: '#examples',
+            selectors: 'legend',
+            extendPage: false
+        });
+    }
 });
