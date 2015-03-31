@@ -10,35 +10,45 @@
         <p>
             This is the classic examples of dependable drop down lists, With AjaxAnywhere is extremely easy and clean to implement:
         </p>
-        <mvc:label path="continentCode" for="continentCode">
-            Select Continent:
-        </mvc:label>
-        <mvc:select path="continentCode" aa-refresh-zones="countryZone, capitalZone" id="continentCode">
-            <mvc:option value="">-- Select One --</mvc:option>
-            <mvc:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
-        </mvc:select>
-        <mvc:label path="countryCode" for="countryCode">
-            Select Country:
-        </mvc:label>
-        <aa:zone id="countryZone">
-        <mvc:select path="countryCode" aa-refresh-zones="capitalZone" id="countryCode">
-            <c:choose>
-                <c:when test="${empty countryForm.countriesSet}">
-                    <option value="">-- Select Continent First --</option>
-                </c:when>
-                <c:otherwise>
-                    <mvc:option value="">-- Select One --</mvc:option>
-                    <mvc:options items="${countryForm.countriesSet}" itemLabel="value" itemValue="key"/>
-                </c:otherwise>
-            </c:choose>
-        </mvc:select>
-        </aa:zone>
+        <div class="form-group">
+            <mvc:label class="col-md-2 control-label" for="continentCode">
+                Select Continent:
+            </mvc:label>
+            <div class="col-md-4">
+            <mvc:select aa-refresh-zones="countryZone, capitalZone" path="continentCode" class="form-control" id="continentCode">
+                <mvc:option value="">-- Select One --</mvc:option>
+                <mvc:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
+            </mvc:select>
+            </div>
+        </div>
+        <div class="form-group">
+            <mvc:label class="col-md-2 control-label" for="countryCode">
+                Select Country:
+            </mvc:label>
+            <div class="col-md-4">
+            <aa:zone id="countryZone">
+                <mvc:select aa-refresh-zones="capitalZone" path="countryCode" class="form-control" id="countryCode">
+                    <c:choose>
+                        <c:when test="${empty countryForm.countriesSet}">
+                            <option value="">-- Select Continent First --</option>
+                        </c:when>
+                        <c:otherwise>
+                            <mvc:option value="">-- Select One --</mvc:option>
+                            <mvc:options items="${countryForm.countriesSet}" itemLabel="value" itemValue="key"/>
+                        </c:otherwise>
+                    </c:choose>
+                </mvc:select>
+            </aa:zone>
+            </div>
+        </div>
+        <div class="form-group">
         <aa:zone id="capitalZone">
-            <mvc:label path="countryCode" for="capital">
+            <mvc:label class="col-md-2 control-label" path="countryCode" for="capital">
                 Capital:
             </mvc:label>
             <input type="text" value="${countryForm.capital}" readonly="readonly"/>
         </aa:zone>
+        </div>
         <div class="controls">
             <input type="submit" aa-refresh-zones="codeZone" class="btn btn-info" name="showCodeButton" value="Show Code"/>
         </div>

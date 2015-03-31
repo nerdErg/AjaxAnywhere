@@ -22,7 +22,7 @@
 
             <br/>
             <a name="example3"></a>
-            <%--<jsp:include page="examples/example3.jsp"/>--%>
+            <jsp:include page="examples/example3.jsp"/>
 
             <br/>
             <a name="example4"></a>

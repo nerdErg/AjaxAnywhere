@@ -3,7 +3,7 @@
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
 
 <c:url var="action" value="/action/examples/1" scope="request"/>
-<form action="${action}" class="form-horizontal" method="post" aa-refresh-zones="aaZone1Example1, aaZone2Example1">
+<form aa-refresh-zones="aaZone1Example1, aaZone2Example1" action="${action}" class="form-horizontal" method="post">
     <fieldset>
         <legend>Ajaxify entire forms</legend>
         <p>
@@ -14,9 +14,9 @@
         </p>
 
         <div class="form-group">
-            <label class="col-md-2 control-label" for="example1-textField">Type something:</label>
+            <label class="col-md-2 control-label" for="example1TextField">Type something:</label>
             <div class="col-md-4">
-                <input type="text" id="example1-textField" class="form-control" name="someText" value="">
+                <input type="text" id="example1TextField" class="form-control" name="someText" value="">
             </div>
         </div>
 

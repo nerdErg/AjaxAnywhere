@@ -11,9 +11,9 @@
         </p>
 
         <div class="form-group">
-            <label class="col-md-2 control-label" for="example2-textField">Type something:</label>
+            <label class="col-md-2 control-label" for="example2TextField">Type something:</label>
             <div class="col-md-4">
-                <input type="text" id="example2-textField" class="form-control" name="someText" value="">
+                <input type="text" id="example2TextField" class="form-control" name="someText" value="">
             </div>
         </div>
 
