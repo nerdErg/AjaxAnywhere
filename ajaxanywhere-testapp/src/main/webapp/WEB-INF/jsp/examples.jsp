@@ -6,6 +6,7 @@
 <head>
     <title>Examples</title>
     <meta name="decorator" content="main-layout"/>
+    <link href="<c:url value="/webjars/font-awesome/4.3.0/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/webjars/jquery.tocify.js/1.9.0/css/jquery.tocify.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/css/syntax-highlighter/shCore.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/css/syntax-highlighter/shThemeDefault.css"/>" rel="stylesheet" type="text/css" />
@@ -26,11 +27,11 @@
 
             <br/>
             <a name="example4"></a>
-            <%--<jsp:include page="examples/example4.jsp"/>--%>
+            <jsp:include page="examples/example4.jsp"/>
 
             <br/>
             <a name="example5"></a>
-            <%--<jsp:include page="examples/example5.jsp"/>--%>
+            <jsp:include page="examples/example5.jsp"/>
 
             <hr/>
         </div>

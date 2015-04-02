@@ -11,6 +11,7 @@
 <a href="<c:url value="/action/examples/4?data=whatever"/>" aa-refresh-zones="codeLayer4">Show Code</a>
 &nbsp | &nbsp;
 <a href="<c:url value="/action/examples/4?data=redirect"/>" aa-refresh-zones="codeLayer4">Redirect Test</a>
+<br/>
 <div id="code4Layer" class="codeLayer">
     <aa:zone id="codeLayer4">
         <c:if test="${not empty code}">

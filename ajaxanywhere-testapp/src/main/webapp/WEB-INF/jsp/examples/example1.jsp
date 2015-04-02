@@ -8,7 +8,7 @@
         <legend>Ajaxify entire forms</legend>
         <p>
             This example shows how you can "ajaxify" an entire form simply adding the attribute:
-            <strong><pre>aa-refresh-zones="aaZone1Example1, aaZone2Example1"></pre></strong>
+            <strong><pre>aa-refresh-zones="aaZone1Example1, aaZone2Example1"</pre></strong>
             This is only recommended for simple forms as all buttons refresh the same zones.
             If you try them out, you will realise why this is a problem.
         </p>
@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-primary" name="refreshTextButton"  value="Submit">Refresh Text</button>
+                <button type="submit" class="btn btn-primary" name="refreshTextButton"  value="Submit"> Refresh Text</button>
                 <input type="submit" class="btn btn-info" name="showCodeButton" value="Show Code"/>
             </div>
         </div>

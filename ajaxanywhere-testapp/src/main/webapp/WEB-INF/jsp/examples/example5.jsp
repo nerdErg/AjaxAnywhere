@@ -1,55 +1,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="mvc"%>
 
 <c:url var="action" value="/action/examples/5" scope="request"/>
-<sf:form action="${action}" method="post" commandName="countryForm" id="countryForm">
+<mvc:form action="${action}" method="post" class="form-horizontal" commandName="countryForm" id="countryForm">
     <fieldset>
-        <legend>A cooler example</legend>
+        <legend>A more complete example</legend>
         <p>
             An examples that combines all the above to showcase a very common use case in our web applications:
         </p>
-        <sf:label path="countryCode" for="countryCode2">
-            Country Code:
-        </sf:label>
-        <sf:input path="countryCode" readonly="true" id="countryCode2"/>
-        <a class="btn" id="search-country-button"
-           href="<c:url value="/action/examples/dialog"/>"
-           style="margin-bottom: 10px;"><i class="icon-search"></i>Search</a>
-        <div>
-            <input type="submit" aa-refresh-zones="aaZoneExample5" class="btn btn-primary" name="submitButton" value="Submit"/>
+        <div class="form-group">
+            <mvc:label class="col-md-2 control-label" path="countryCode">Country Code:</mvc:label>
+            <div class="col-md-4">
+                <mvc:input path="countryCode" class="form-control" readonly="true"/>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default btn-sm form-control"
+                        data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-search"> </i> Find country</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" aa-refresh-zones="aaZoneExample5" class="btn btn-primary" name="submitButton" value="Submit"/>
+            </div>
         </div>
     </fieldset>
-</sf:form>
+</mvc:form>
 <aa:zone id="aaZoneExample5">
 <c:if test="${not empty countryForm.countryCode}">
     <p>You have selected the country of: <strong>${countryForm.countryName}</strong></p>
 </c:if>
 </aa:zone>
-<div id="country-search-dialog">
-</div>
 
-<script>
-    $(function () {
-        $("div#country-search-dialog").dialog({
-            autoOpen: false,
-            modal: true,
-            title: 'Search Country',
-            resizable: false,
-            width: 500,
-            height: 527,
-            maxHeight: 600
-        });
-
-        $("a#search-country-button").click(function (event) {
-            event.preventDefault();
-            $.post("<c:url value="/action/examples/dialog"/>", function (data) {
-                $("div#country-search-dialog").html(data);
-            });
-
-            $("div#country-search-dialog").dialog("open");
-        });
-
-    });
-</script>
+<jsp:include page="/action/examples/dialog"/>

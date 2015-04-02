@@ -1,6 +1,18 @@
+/* Start: Override Bootstrap styles */
+
+.btn {
+    padding-top: 7px;
+}
+
+/* End: Override Bootstrap styles */
 
 #examples {
-    margin-top: 1em;
+    margin-top: 2em;
+}
+
+#examples legend {
+    font-family: 'Special Elite';
+    color: #ba3925;
 }
 
 /* Styles related to the display tag pagination links*/
