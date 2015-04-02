@@ -13,15 +13,19 @@
             </div>
             <div class="modal-body">
                 <c:url var="action" value="/action/examples/dialog/submit" scope="request"/>
-                <mvc:form aa-refresh-zones="tableZone" action="${action}" method="post"  commandName="countryForm" name="countryFormDialog" id="countryFormDialog">
+                <mvc:form aa-refresh-zones="tableZone" action="${action}" class="form-horizontal" method="post" commandName="countryForm" name="countryFormDialog" id="countryFormDialog">
                     <fieldset>
-                        <mvc:label path="continentCode">
-                            Select Continent:
-                        </mvc:label>
-                        <mvc:select path="continentCode" aa-refresh-zones="tableZone">
-                            <mvc:option value="">-- Select One --</mvc:option>
-                            <mvc:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
-                        </mvc:select>
+                        <div class="form-group">
+                            <mvc:label class="col-md-3 control-label" path="continentCode">
+                                Select Continent:
+                            </mvc:label>
+                            <div class="col-md-6">
+                                <mvc:select aa-refresh-zones="tableZone" path="continentCode" class="form-control">
+                                    <mvc:option value="">-- Select One --</mvc:option>
+                                    <mvc:options items="${countryForm.continentsSet}" itemLabel="value" itemValue="key"/>
+                                </mvc:select>
+                            </div>
+                        </div>
                     </fieldset>
                     <aa:zone id="tableZone">
                         <display:table list="${countryForm.countriesSet}"
@@ -44,8 +48,9 @@
                             });
 
                             $("table.selectable > tbody tr").click(function (event){
-                                $("input#countryCode2").val($(this).find("td:first").text().trim());
-                                $("div#country-search-dialog").dialog("close");
+                                $("#countryCode2").val($(this).find("td:first").text().trim());
+                                $("#countryName").val($(this).find("td:nth-child(2)").text().trim());
+                                $("#myModal").modal('hide');
                             });
                         </script>
                     </aa:zone>

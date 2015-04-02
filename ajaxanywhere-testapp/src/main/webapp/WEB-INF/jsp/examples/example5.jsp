@@ -11,26 +11,30 @@
             An examples that combines all the above to showcase a very common use case in our web applications:
         </p>
         <div class="form-group">
-            <mvc:label class="col-md-2 control-label" path="countryCode">Country Code:</mvc:label>
+            <mvc:label class="col-md-2 control-label" path="countryCode" for="countryCode2">Country :</mvc:label>
             <div class="col-md-4">
-                <mvc:input path="countryCode" class="form-control" readonly="true"/>
+                <mvc:hidden path="countryCode" id="countryCode2"/>
+                <mvc:input path="countryName" class="form-control" readonly="true"/>
             </div>
             <div class="col-md-2">
                 <button type="button" class="btn btn-default btn-sm form-control"
                         data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-search"> </i> Find country</button>
+                    <i class="fa fa-search"> </i> Choose country</button>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" aa-refresh-zones="aaZoneExample5" class="btn btn-primary" name="submitButton" value="Submit"/>
+                <input type="submit" aa-refresh-zones="aaZoneExample5" class="btn btn-primary" name="submitButton" value="Find capital"/>
             </div>
         </div>
     </fieldset>
 </mvc:form>
 <aa:zone id="aaZoneExample5">
 <c:if test="${not empty countryForm.countryCode}">
-    <p>You have selected the country of: <strong>${countryForm.countryName}</strong></p>
+    <p id="capitalText">The capital is: <strong>${countryForm.capital}</strong></p>
+    <script>
+        $('#capitalText').effect("highlight", 3000);
+    </script>
 </c:if>
 </aa:zone>
 

@@ -134,7 +134,7 @@ public class ExamplesController {
                                  HttpServletRequest request) {
 
         if (StringUtils.isNotBlank(countryForm.getCountryCode())) {
-            countryForm.setCountryName(DataService.getCountryName(countryForm.getCountryCode()));
+            countryForm.setCapital(DataService.getCapitalByCountryCode(countryForm.getCountryCode()));
         }
 
         // We don't need to send back the whole page. A fragment with the zone is enough
