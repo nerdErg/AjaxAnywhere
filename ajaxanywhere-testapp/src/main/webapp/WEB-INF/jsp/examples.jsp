@@ -51,6 +51,7 @@
 <script src="<c:url value="/webjars/iframe-resizer/2.8.5-SNAPSHOT/js/iframeResizer.contentWindow.min.js"/>"></script>
 <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
 <script src="<c:url value="/webjars/jquery.tocify.js/1.9.0/js/jquery.tocify.min.js"/>"></script>
+<script src="<c:url value="/webjars/syntaxhighlighter/3.0.83/scripts/XRegExp.js"/>"></script>
 <script src="<c:url value="/webjars/syntaxhighlighter/3.0.83/scripts/shCore.js"/>"></script>
 <script src="<c:url value="/webjars/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"/>"></script>
 </body>
