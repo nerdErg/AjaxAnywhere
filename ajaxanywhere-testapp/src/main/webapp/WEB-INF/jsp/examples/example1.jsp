@@ -1,65 +1,45 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="mvc"%>
 
 <c:url var="action" value="/action/examples/1" scope="request"/>
-<form aa-refresh-zones="aaZone1Example1, aaZone2Example1" action="${action}" class="form-horizontal" method="post">
+<mvc:form action="${action}" method="post" class="form-horizontal" commandName="countryForm" id="countryForm">
     <fieldset>
-        <legend>Ajaxify entire forms</legend>
+        <legend>Show me what you can do please!</legend>
         <p>
-            This example shows how you can "ajaxify" an entire form simply adding in the attribute:
-            <strong><pre>aa-refresh-zones="aaZone1Example1, aaZone2Example1"</pre></strong>
-            This is only recommended for simple forms as all the buttons within the form refresh the same zones.
+            With AjaxAnywhere you can do something like the example below <strong>without writing any Javascript</strong>.
+            That means that all the behaviour in this widget has been specified declaratively.<br/>
+            <strong>If that does not make you curious then I am not sure what will :-)</strong>
         </p>
-
         <div class="form-group">
-            <label class="col-md-2 control-label" for="example1TextField">Type something:</label>
+            <mvc:label class="col-md-2 control-label" path="countryCode" for="countryCode2">Country :</mvc:label>
             <div class="col-md-4">
-                <input type="text" id="example1TextField" class="form-control" name="someText" value="">
+                <aa:zone id="countryDataZone">
+                    <mvc:hidden path="countryCode" id="countryCode2"/>
+                    <mvc:input path="countryName" class="form-control" readonly="true"/>
+                </aa:zone>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default btn-sm form-control"
+                        data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-search"> </i> Choose country</button>
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-primary" name="refreshTextButton"  value="Submit"> Refresh Text</button>
-                <input type="submit" class="btn btn-info" name="showCodeButton" value="Show Code"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-12">
-            <aa:zone id="aaZone1Example1">
-                <strong>Text introduced by user:</strong>
-                <strong>
-                <c:choose>
-                    <c:when test="${empty requestScope.someText}">
-                        <span class="text-info">This text will only be refreshed with the user text when the "Refresh Text" button is pressed.</span>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="text-success">${someText}</span>
-                        <script>
-                            $("div#aaZone1Example1").effect("highlight", 3000);
-                        </script>
-                    </c:otherwise>
-                </c:choose>
-                </strong>
-            </aa:zone>
+                <input type="submit" aa-refresh-zones="aaZoneExample1" class="btn btn-primary" name="submitButton" value="Find capital"/>
             </div>
         </div>
     </fieldset>
-</form>
+</mvc:form>
+<aa:zone id="aaZoneExample1">
+<c:if test="${not empty countryForm.countryCode}">
+    <p id="capitalText">The capital is: <strong>${countryForm.capital}</strong></p>
+    <script>
+        $('#capitalText').effect("highlight", 3000);
+    </script>
+</c:if>
+</aa:zone>
 
-<div id="code1Layer" class="codeLayer">
-    <aa:zone id="aaZone2Example1">
-        <c:if test="${not empty code}">
-            <label><strong>JSP Code:</strong></label>
-            <pre class="brush: html; highlight: [3,6,32,54]">${code}</pre>
-            <a class="btn btn-danger closeCode scroll" href="#example1"><i class="ui-icon-close"></i>Hide Code</a>
-            <script>
-                $("div#code1Layer").hide()
-                SyntaxHighlighter.highlight();
-                $("div#code1Layer").show("blind", {direction: 'up'}, 1000);
-            </script>
-        </c:if>
-    </aa:zone>
-</div>
+<jsp:include page="/action/examples/dialog"/>

@@ -6,6 +6,7 @@
 
 #examples {
     margin-top: 2em;
+    margin-bottom: 3em;
 }
 
 #examples legend {
@@ -74,4 +75,9 @@ table.selectable > tbody tr {
 
 .code .container, .gutter {
     display: inline-block !important;
+}
+
+a.countrySelect {
+    display: block;
+    width: 100%;
 }

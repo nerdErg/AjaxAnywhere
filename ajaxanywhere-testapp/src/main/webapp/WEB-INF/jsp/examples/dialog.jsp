@@ -34,25 +34,13 @@
                                        requestURI="/action/examples/dialog/submit"
                                        id="countryMapEntry"
                                        excludedParams="aazones">
-                            <display:column title="Code">
-                                ${countryMapEntry.key}
-                            </display:column>
                             <display:column title="Country">
-                                ${countryMapEntry.value}
+                                <a href="<c:url value="/action/examples/1?countryCode=${countryMapEntry.key}"/>"
+                                   aa-refresh-zones="countryDataZone" data-dismiss="modal" class="countrySelect">
+                                        ${countryMapEntry.value}
+                                </a>
                             </display:column>
                         </display:table>
-                        <script>
-                            $("span.pagelinks a").click(function(event){
-                                event.preventDefault();
-                                AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), "tableZone");
-                            });
-
-                            $("table.selectable > tbody tr").click(function (event){
-                                $("#countryCode2").val($(this).find("td:first").text().trim());
-                                $("#countryName").val($(this).find("td:nth-child(2)").text().trim());
-                                $("#myModal").modal('hide');
-                            });
-                        </script>
                     </aa:zone>
                 </mvc:form>
             </div>

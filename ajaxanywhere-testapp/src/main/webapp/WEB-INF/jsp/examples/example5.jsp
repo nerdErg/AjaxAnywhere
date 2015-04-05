@@ -1,41 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="mvc"%>
 
-<c:url var="action" value="/action/examples/5" scope="request"/>
-<mvc:form action="${action}" method="post" class="form-horizontal" commandName="countryForm" id="countryForm">
-    <fieldset>
-        <legend>A more complete example</legend>
-        <p>
-            An examples that combines all the above to showcase a very common use case in our web applications:
-        </p>
-        <div class="form-group">
-            <mvc:label class="col-md-2 control-label" path="countryCode" for="countryCode2">Country :</mvc:label>
-            <div class="col-md-4">
-                <mvc:hidden path="countryCode" id="countryCode2"/>
-                <mvc:input path="countryName" class="form-control" readonly="true"/>
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-default btn-sm form-control"
-                        data-toggle="modal" data-target="#myModal">
-                    <i class="fa fa-search"> </i> Choose country</button>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" aa-refresh-zones="aaZoneExample5" class="btn btn-primary" name="submitButton" value="Find capital"/>
-            </div>
-        </div>
-    </fieldset>
-</mvc:form>
-<aa:zone id="aaZoneExample5">
-<c:if test="${not empty countryForm.countryCode}">
-    <p id="capitalText">The capital is: <strong>${countryForm.capital}</strong></p>
-    <script>
-        $('#capitalText').effect("highlight", 3000);
-    </script>
-</c:if>
-</aa:zone>
-
-<jsp:include page="/action/examples/dialog"/>
+<fieldset>
+    <legend>Ajaxify links</legend>
+    <p>
+        Normal links that are not associated with any form element can be "ajaxified" too. You can also check how AjaxAnywhere handles the possible redirects automatically:
+    </p>
+</fieldset>
+<a href="<c:url value="/action/examples/5?data=whatever"/>" aa-refresh-zones="codeLayer5">Show Code</a>
+&nbsp | &nbsp;
+<a href="<c:url value="/action/examples/5?data=redirect"/>" aa-refresh-zones="codeLayer5">Redirect Test</a>
+<br/>
+<br/>
+<div id="code5Layer" class="codeLayer">
+    <aa:zone id="codeLayer5">
+        <c:if test="${not empty code}">
+            <label><strong>JSP Code:</strong></label>
+            <pre class="brush: html; highlight: [3,11,13]">${code}</pre>
+            <a class="btn btn-danger closeCode scroll" href="#example5"><i class="ui-icon-close"></i>Hide Code</a>
+            <script>
+                $("div#code5Layer").hide();
+                SyntaxHighlighter.highlight();
+                $("div#code5Layer").show("blind", {direction: 'up'}, 1000);
+            </script>
+        </c:if>
+    </aa:zone>
+</div>

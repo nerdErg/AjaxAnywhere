@@ -10,10 +10,9 @@ package com.nerderg.ajaxanywhere.web.util;
 public class Routing {
 
     public class Page {
-        public static final String HOME = "home";
         public static final String EXAMPLES = "examples";
         public static final String DIALOG = "examples/dialog" ;
-        public static final String EXAMPLE5 = "examples/example5";
+        public static final String EXAMPLE1 = "examples/example1";
     }
 
     public class Redirect {

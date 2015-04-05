@@ -28,7 +28,6 @@ public class ExamplesController {
 
     @RequestMapping("/examples")
     public String load(@ModelAttribute("countryForm") CountryForm countryForm) {
-
         setupForm(countryForm);
         return Routing.Page.EXAMPLES;
     }
@@ -53,7 +52,45 @@ public class ExamplesController {
         }
     }
 
-    @RequestMapping(value = {"/examples/1", "/examples/2"}, method = RequestMethod.POST, params = "refreshTextButton")
+    @RequestMapping("/examples/dialog")
+    public String dialogLoad(@ModelAttribute("countryForm") CountryForm countryForm,
+                             HttpServletRequest request) {
+
+        countryForm.setCountriesSet(DataService.getCountriesByContinent(countryForm.getContinentCode()));
+
+        return Routing.Page.DIALOG;
+    }
+
+    @RequestMapping("/examples/dialog/submit")
+    public String dialogSubmit(@ModelAttribute("countryForm") CountryForm countryForm,
+                               HttpServletRequest request) {
+
+        return Routing.Forward.DIALOG;
+    }
+
+    @RequestMapping(value = "/examples/1", method = RequestMethod.GET)
+    public String example1(@ModelAttribute("countryForm") CountryForm countryForm,
+                           @RequestParam(required = false) String countryCode) {
+        if (StringUtils.isNotBlank(countryCode)) {
+            countryForm.setCountryCode(countryCode);
+            countryForm.setCountryName(DataService.getCountryName(countryCode));
+        }
+        return Routing.Page.EXAMPLE1;
+    }
+
+    @RequestMapping(value = "/examples/1", method = RequestMethod.POST)
+    public String example1Submit(@ModelAttribute("countryForm") CountryForm countryForm,
+                                 HttpServletRequest request) {
+
+        if (StringUtils.isNotBlank(countryForm.getCountryCode())) {
+            countryForm.setCapital(DataService.getCapitalByCountryCode(countryForm.getCountryCode()));
+        }
+
+        // We don't need to send back the whole page. A fragment with the zone is enough
+        return Routing.Page.EXAMPLE1;
+    }
+
+    @RequestMapping(value = {"/examples/2", "/examples/3"}, method = RequestMethod.POST, params = "refreshTextButton")
     public String refreshText(@RequestParam("someText")String someText,
                            HttpServletRequest request,
                            @RequestParam(required = false) String submitButton) {
@@ -63,21 +100,10 @@ public class ExamplesController {
         return Routing.Forward.EXAMPLES;
     }
 
-    @RequestMapping(value = "/examples/1", method = RequestMethod.POST, params = "showCodeButton")
+    @RequestMapping(value = "/examples/2", method = RequestMethod.POST, params = "showCodeButton")
     public String example1ShowCode(@RequestParam("someText")String someText,
                                       HttpServletRequest request,
                                       @RequestParam(required = false) String submitButton) {
-
-        String pageLocation = "/WEB-INF/jsp/examples/example1.jsp";
-        request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
-
-        return Routing.Forward.EXAMPLES;
-    }
-
-    @RequestMapping(value = "/examples/2", method = RequestMethod.POST, params = "showCodeButton")
-    public String example2ShowCode(@RequestParam("someText")String someText,
-                                   HttpServletRequest request,
-                                   @RequestParam(required = false) String submitButton) {
 
         String pageLocation = "/WEB-INF/jsp/examples/example2.jsp";
         request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
@@ -85,23 +111,34 @@ public class ExamplesController {
         return Routing.Forward.EXAMPLES;
     }
 
-    @RequestMapping(value = "/examples/3", method = RequestMethod.POST)
-    public String example3(@ModelAttribute("countryForm") CountryForm countryForm,
+    @RequestMapping(value = "/examples/3", method = RequestMethod.POST, params = "showCodeButton")
+    public String example2ShowCode(@RequestParam("someText")String someText,
+                                   HttpServletRequest request,
+                                   @RequestParam(required = false) String submitButton) {
+
+        String pageLocation = "/WEB-INF/jsp/examples/example3.jsp";
+        request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
+
+        return Routing.Forward.EXAMPLES;
+    }
+
+    @RequestMapping(value = "/examples/4", method = RequestMethod.POST)
+    public String example4(@ModelAttribute("countryForm") CountryForm countryForm,
                            HttpServletRequest request) {
 
         if (StringUtils.isNotBlank(request.getParameter("showCodeButton"))) {
-            String pageLocation = "/WEB-INF/jsp/examples/example3.jsp";
+            String pageLocation = "/WEB-INF/jsp/examples/example4.jsp";
             request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
         }
 
         return Routing.Forward.EXAMPLES;
     }
 
-    @RequestMapping(value = "/examples/4", method = RequestMethod.GET)
-    public String example4ShowCode(HttpServletRequest request,
+    @RequestMapping(value = "/examples/5", method = RequestMethod.GET)
+    public String example5ShowCode(HttpServletRequest request,
                                    @RequestParam(required = false) String data) {
 
-        String pageLocation = "/WEB-INF/jsp/examples/example4.jsp";
+        String pageLocation = "/WEB-INF/jsp/examples/example5.jsp";
         request.setAttribute("code", WebUtil.getPageSourceCode(servletContext, pageLocation));
 
         String view = Routing.Forward.EXAMPLES;
@@ -111,33 +148,5 @@ public class ExamplesController {
         }
 
         return view;
-    }
-
-    @RequestMapping("/examples/dialog")
-         public String dialogLoad(@ModelAttribute("countryForm") CountryForm countryForm,
-                                  HttpServletRequest request) {
-
-        countryForm.setCountriesSet(DataService.getCountriesByContinent(countryForm.getContinentCode()));
-
-        return Routing.Page.DIALOG;
-    }
-
-    @RequestMapping("/examples/dialog/submit")
-    public String dialogSubmit(@ModelAttribute("countryForm") CountryForm countryForm,
-                             HttpServletRequest request) {
-
-        return Routing.Forward.DIALOG;
-    }
-
-    @RequestMapping(value = "/examples/5", method = RequestMethod.POST)
-    public String example5Submit(@ModelAttribute("countryForm") CountryForm countryForm,
-                                 HttpServletRequest request) {
-
-        if (StringUtils.isNotBlank(countryForm.getCountryCode())) {
-            countryForm.setCapital(DataService.getCapitalByCountryCode(countryForm.getCountryCode()));
-        }
-
-        // We don't need to send back the whole page. A fragment with the zone is enough
-        return Routing.Page.EXAMPLE5;
     }
 }

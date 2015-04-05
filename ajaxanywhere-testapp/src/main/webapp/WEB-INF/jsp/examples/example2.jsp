@@ -3,11 +3,13 @@
 <%@ taglib uri="http://com.nerderg/ajaxanywhere" prefix="aa" %>
 
 <c:url var="action" value="/action/examples/2" scope="request"/>
-<form action="${action}" class="form-horizontal" method="post">
+<form aa-refresh-zones="aaZone1Example2, aaZone2Example2" action="${action}" class="form-horizontal" method="post">
     <fieldset>
-        <legend>Ajaxify form buttons</legend>
+        <legend>Ajaxify entire forms</legend>
         <p>
-            Next we can see how to "ajaxify" the form buttons individually and specifying the zones to refresh for each of them:
+            This example shows how you can "ajaxify" an entire form simply adding in the attribute:
+            <strong><pre>aa-refresh-zones="aaZone1Example2, aaZone2Example2"</pre></strong>
+            This is only recommended for simple forms as all the buttons within the form refresh the same zones.
         </p>
 
         <div class="form-group">
@@ -19,11 +21,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" aa-refresh-zones="aaZone1Example2" class="btn btn-primary" name="refreshTextButton" value="Refresh Text">Refresh Text</button>
-                &nbsp;&nbsp;
-                <input type="image"aa-refresh-zones="aaZone1Example2" src="<c:url value="/img/refresh.png"/>" name="refreshTextButton" value="Refresh Text"/>
-                &nbsp;&nbsp;
-                <input type="submit" aa-refresh-zones="aaZone2Example2" class="btn btn-info" name="showCodeButton" value="Show Code"/>
+                <button type="submit" class="btn btn-primary" name="refreshTextButton"  value="Submit"> Refresh Text</button>
+                <input type="submit" class="btn btn-info" name="showCodeButton" value="Show Code"/>
             </div>
         </div>
 
@@ -49,16 +48,17 @@
         </div>
     </fieldset>
 </form>
-<div id="code2Layer" class="codeLayer">
+
+<div id="code1Layer" class="codeLayer">
     <aa:zone id="aaZone2Example2">
         <c:if test="${not empty code}">
             <label><strong>JSP Code:</strong></label>
-            <pre class="brush: html; highlight: [3,6,22,24,26,32,53]">${code}</pre>
+            <pre class="brush: html; highlight: [3,6,31,53]">${code}</pre>
             <a class="btn btn-danger closeCode scroll" href="#example2"><i class="ui-icon-close"></i>Hide Code</a>
             <script>
-                $("div#code2Layer").hide()
+                $("div#code1Layer").hide();
                 SyntaxHighlighter.highlight();
-                $("div#code2Layer").show("blind", {direction: 'up'}, 1000);
+                $("div#code1Layer").show("blind", {direction: 'up'}, 1000);
             </script>
         </c:if>
     </aa:zone>

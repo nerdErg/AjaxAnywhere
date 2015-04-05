@@ -14,26 +14,20 @@
 <body id="examples">
     <div class="row">
         <div class="col-md-9">
-            <a name="example1"></a>
-            <jsp:include page="examples/example1.jsp"/>
+            <c:import url="/action/examples/1"/>
 
             <br/>
-            <a name="example2"></a>
             <jsp:include page="examples/example2.jsp"/>
 
             <br/>
-            <a name="example3"></a>
             <jsp:include page="examples/example3.jsp"/>
 
             <br/>
-            <a name="example4"></a>
             <jsp:include page="examples/example4.jsp"/>
 
             <br/>
-            <a name="example5"></a>
             <jsp:include page="examples/example5.jsp"/>
 
-            <hr/>
         </div>
         <div class="col-md-3">
             <div id="toc"></div>
