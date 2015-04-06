@@ -1,12 +1,43 @@
-/* Start: Override Bootstrap styles */
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+}
 
+.container .credit {
+    margin: 20px 0;
+}
 
+#main {
+    margin-top: 60px;
+}
 
-/* End: Override Bootstrap styles */
+.navbar a {
+    font-family: 'Special Elite';
+}
+
+body.home .navbar-brand {
+    color: white;
+}
+
+body.documentation ul.nav .documentation {
+    color: white;
+}
+
+a.navbar-brand {
+    background: url('../img/ajax-logo.png') no-repeat 20px center;
+    padding-left: 60px !important;
+}
+
+#grails-plugin {
+    background: url('../img/grails-icon.png') left 10px no-repeat;
+    padding-left: 30px;
+    margin-left: 5px;
+}
 
 #examples {
-    margin-top: 2em;
-    margin-bottom: 3em;
+    margin-top: 70px;
 }
 
 #examples legend {

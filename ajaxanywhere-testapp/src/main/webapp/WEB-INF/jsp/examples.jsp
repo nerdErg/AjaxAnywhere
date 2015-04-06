@@ -6,7 +6,6 @@
 <head>
     <title>Examples</title>
     <meta name="decorator" content="main-layout"/>
-    <link href="<c:url value="/webjars/font-awesome/4.3.0/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/webjars/jquery.tocify.js/1.9.0/css/jquery.tocify.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/webjars/syntaxhighlighter/3.0.83/styles/shCore.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/webjars/syntaxhighlighter/3.0.83/styles/shThemeDefault.css"/>" rel="stylesheet" type="text/css" />
@@ -42,7 +41,6 @@
     });
 </script>
 <script src="<c:url value="/webjars/ajaxanywhere/2.1/aa.js"/>"></script>
-<script src="<c:url value="/webjars/iframe-resizer/2.8.5-SNAPSHOT/js/iframeResizer.contentWindow.min.js"/>"></script>
 <script src="<c:url value="/webjars/jquery-ui/1.11.4/jquery-ui.min.js"/>"></script>
 <script src="<c:url value="/webjars/jquery.tocify.js/1.9.0/js/jquery.tocify.min.js"/>"></script>
 <script src="<c:url value="/webjars/syntaxhighlighter/3.0.83/scripts/XRegExp.js"/>"></script>

@@ -39,7 +39,8 @@ $(function () {
         $("#toc").tocify({
             context: '#examples',
             selectors: 'legend',
-            extendPage: false
+            extendPage: false,
+            scrollTo: 120
         });
     }
 });

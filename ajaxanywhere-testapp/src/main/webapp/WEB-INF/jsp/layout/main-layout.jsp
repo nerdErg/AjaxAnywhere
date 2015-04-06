@@ -11,15 +11,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title><fmt:message key="title.app"/> - <decorator:title/></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="<c:url value="/img/favicon.ico"/>" type="image/x-icon">
+    <title>AjaxAnywhere (Reloaded) - <decorator:title/></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AjaxAnywhere main site">
+    <meta name="author" content="Angel Ruiz Calvo">
+    <meta name="keywords" content="Ajax, AjaxAnywhere, Anywhere, ajax, documentation,Angel,Angel Ruiz, Angel Ruiz Calvo, nerderg, grails, groovy, java, java ee">
+    <meta name="generator" content="JBake">
+    <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/3.3.4/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/webjars/font-awesome/4.3.0/css/font-awesome.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/main.css"/>">
-    <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" href="<c:url value="/img/favicon.ico"/>">
 
     <script src="<c:url value="/webjars/jquery/1.11.2/jquery.min.js"/>"></script>
 
@@ -28,11 +33,13 @@
 </head>
 <body <decorator:getProperty property="body.id"  writeEntireProperty="true" /> <decorator:getProperty property="body.class" writeEntireProperty="true" /> <decorator:getProperty property="body.style" writeEntireProperty="true"/> <decorator:getProperty property="body.onload" writeEntireProperty="true"/> <decorator:getProperty property="body.onunload" writeEntireProperty="true" /> >
 
+<jsp:include page="menu.jsp"/>
 
 <div id="main" class="container clear-top">
     <decorator:body/>
 </div>
 
+<jsp:include page="footer.jsp"/>
 
 <script src="<c:url value="/webjars/bootstrap/3.3.4/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/js/common.js"/>"></script>
