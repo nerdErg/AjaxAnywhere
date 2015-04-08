@@ -7,3 +7,12 @@ branches:
 script:
 - mvn clean test
 - mvn package -Popenshift
+deploy:
+  provider: openshift
+  user: aruizca@gmail.com
+  password:
+    secure: nS4+094MtlwpL4EKox2LNzEJ6KtaGlot+D/RULzPYjNJ0INXeVp8oDMZzGELohjZHWfpCVvMW6PkU90jhKOafZq5AzTDiBJCPE8BDY9JrDUc+QcP5vL20N9eArJNGi7cqkzHz/Gito6meqa3Pg0UTm+gR2r5E0cnV5J5GaT0hZs=
+  app: ajaxanywhere
+  domain: aruizca
+  on:
+    repo: nerdErg/AjaxAnywhere
