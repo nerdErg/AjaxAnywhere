@@ -15,6 +15,14 @@
                 <li><a class="documentation" href="http://ajaxanywhere.com/documentation.html">Documentation</a></li>
                 <li class="active"><a href="#">Examples</a></li>
                 <li><a id="grails-plugin" href="">Grails Plugin</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false"><i class="fa fa-github fa-lg"></i> Source Code <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="https://github.com/nerdErg/AjaxAnywhere" target="_blank">AjaxAnywhere library and examples</a></li>
+                        <li><a href="https://github.com/aruizca/ajaxanywhere-site" target="_blank">AjaxAnywhere site</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

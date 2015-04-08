@@ -31,9 +31,9 @@ a.navbar-brand {
 }
 
 #grails-plugin {
-    background: url('../img/grails-icon.png') left 10px no-repeat;
+    background: url('../img/grails-icon.png') left 5px top 12px no-repeat;
     padding-left: 30px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 #examples {
