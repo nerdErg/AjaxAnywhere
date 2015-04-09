@@ -19,7 +19,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <build>
-                <finalName>${artifactId}-jre1.4</finalName>
+                <finalName>${project.artifactId}-jre1.4</finalName>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
