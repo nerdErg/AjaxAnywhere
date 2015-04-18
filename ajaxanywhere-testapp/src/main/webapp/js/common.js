@@ -43,4 +43,6 @@ $(function () {
             scrollTo: 120
         });
     }
+
+    $('#grails-plugin').popover();
 });

@@ -16,7 +16,7 @@
 
 
 
-
+      /* Declarative */
       <a aa-refresh-zones="zoneToRefresh"
          href="url to get content">
         Do something
@@ -28,7 +28,7 @@
 
 
 
-
+      /* Imperative */
       <a id="refreshButton"
          href="url to get content">
         Do something
@@ -41,10 +41,6 @@
             url: $(this).attr('href'),
             success: function(content){
               $("#zoneToRefresh").html(content);
-            },
-            error: function(){
-              // Most times no one implements this
-              // and everyone does it differently
             }
           });
         });
