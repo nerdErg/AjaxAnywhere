@@ -75,10 +75,14 @@ public class AAFilter implements Filter {
                     XMLHandler.sendRedirect(bufferResponseWrapper);
                 }
             } catch (Throwable e) {
-                String simpleName = e.getCause().getClass().getSimpleName();
-                if (!simpleName.equals("ClientAbortException")) {
-                    logger.log(Level.SEVERE, e.getMessage(), e);
-                    XMLHandler.handleError(response, e);
+                if (e.getCause() != null) {
+                    String simpleName = e.getCause().getClass().getSimpleName();
+                    if (!simpleName.equals("ClientAbortException")) {
+                        logger.log(Level.SEVERE, e.getMessage(), e);
+                        XMLHandler.handleError(response, e);
+                    }
+                } else {
+                    logger.severe(e.getMessage());
                 }
             }
             logger.info("AjaxAnywhere Request: \"" + requestMapping + "\" took: " + (System.currentTimeMillis() - start) + "ms" );
