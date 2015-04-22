@@ -112,3 +112,140 @@ a.countrySelect {
     display: block;
     width: 100%;
 }
+
+/***** Footer *****/
+#footer {
+    text-align: left;
+    vertical-align: middle;
+    border-top: solid 1px #d3d3d3;
+    background-color: #ffffff;
+    padding: 20px 0 20px;
+}
+
+#footer span {
+    display: block;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
+
+#footer img.logo {
+    width: 120px;
+}
+
+#footer img.name {
+    width: 230px;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}
+
+#tools-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+#tools-list li {
+    line-height: 2.5em;
+    font-size: 1.3em;
+    background-repeat: no-repeat;
+    padding-left: 2.4em;
+}
+
+#tools-list a {
+    color: black !important;
+}
+
+#tools-list li.jbake {
+    background-image: url(../img/jbake-logo-32x32.png);
+}
+
+#tools-list li.asciidoctor {
+    background-image: url(../img/asciidoctor-logo-32x32.png);
+}
+
+#tools-list li.webjars {
+    background-image: url(../img/webjars-logo-32x32.png);
+}
+
+#tools-list li.gradle {
+    background-image: url(../img/gradle-logo-32x32.png);
+}
+
+
+/*** Social Icons ***/
+
+.social {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.list-inline li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+/*Change icons size here*/
+.social-icons .fa {
+    font-size: 1.8em;
+}
+/*Change icons circle size and color here*/
+.social-icons .fa {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #FFF;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons.icon-circle .fa{
+    border-radius: 50%;
+}
+.social-icons.icon-rounded .fa{
+    border-radius:5px;
+}
+.social-icons.icon-flat .fa{
+    border-radius: 0;
+}
+
+.social-icons .fa:hover, .social-icons .fa:active {
+    color: #FFF;
+    -webkit-box-shadow: 1px 1px 3px #333;
+    -moz-box-shadow: 1px 1px 3px #333;
+    box-shadow: 1px 1px 3px #333;
+}
+.social-icons.icon-zoom .fa:hover, .social-icons.icon-zoom .fa:active {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.social-icons.icon-rotate .fa:hover, .social-icons.icon-rotate .fa:active {
+    -webkit-transform: scale(1.1) rotate(360deg);
+    -moz-transform: scale(1.1) rotate(360deg);
+    -ms-transform: scale(1.1) rotate(360deg);
+    -o-transform: scale(1.1) rotate(360deg);
+    transform: scale(1.1) rotate(360deg);
+}
+
+.social-icons .fa-linkedin,.social-icons .fa-linkedin-square{background-color:#0085AE;}
+.social-icons .fa-github,.social-icons .fa-github-alt,.social-icons .fa-github-square{background-color:#070709;}
+.social-icons .fa-twitter,.social-icons .fa-twitter-square{background-color:#32CCFE;}
+.social-icons .fa-male{background-color:#F7931A}

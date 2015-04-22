@@ -43,6 +43,7 @@
 
 <script src="<c:url value="/webjars/bootstrap/3.3.4/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/js/common.js"/>"></script>
+<script src="<c:url value="/js/google-analytics.js"/>"></script>
 <div id="spinner" style="display:none;"></div>
 
 </body>
