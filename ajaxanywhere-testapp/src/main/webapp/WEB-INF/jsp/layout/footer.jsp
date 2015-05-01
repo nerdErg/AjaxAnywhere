@@ -1,10 +1,11 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="container">
     <footer id="footer" class="row">
         <div class="col-md-5">
             <span>Sponsored by:</span>
             <a href="http://www.nerdErg.com" target="_nerdErg">
-                <img class="logo" alt="nerdErg logo" src="img/nerderg-logo.png"/>
-                <img class="name" alt="nerdErg - harness the power of the nerd" src="img/nerderg-text.png">
+                <img class="logo" alt="nerdErg logo" src="<c:url value="/img/nerderg-logo.png"/>"/>
+                <img class="name" alt="nerdErg - harness the power of the nerd" src="<c:url value="/img/nerderg-text.png"/>">
             </a>
         </div>
 
