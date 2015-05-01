@@ -97,13 +97,13 @@ public class AAUtils {
      *
      * @param zone
      * @param tag
-     * @param fragmentUrl
+     * @param href
      * @param jsBefore
      * @param jsAfter
      * @return
      */
-    public static String getZoneStartDelimiter(String zone, String tag, String fragmentUrl, String jsBefore , String jsAfter) {
-        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\" aa-fragment-url=\"" + fragmentUrl + "\"");
+    public static String getZoneStartDelimiter(String zone, String tag, String href, String jsBefore , String jsAfter) {
+        StringBuilder sb = new StringBuilder("<" + tag + " id=\"" + zone.replaceAll("\"", "&quot;") + "\" aa-href=\"" + href + "\"");
 
         if (tag.toLowerCase().equals("div")) {
             sb.append(" style=\"display:inline;\"");

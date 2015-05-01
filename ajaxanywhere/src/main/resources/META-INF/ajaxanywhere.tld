@@ -36,6 +36,14 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
+            <description><![CDATA[Deprecated, please use href instead]]></description>
+        </attribute>
+
+        <attribute>
+            <name>href</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
             <description><![CDATA[url to get content when page is loaded]]></description>
         </attribute>
 

@@ -36,7 +36,8 @@ import static com.nerderg.ajaxanywhere.AAConstants.*;
  */
 public class ZoneTag extends TagSupport {
 
-    private String id, tag, fragmentUrl, jsBefore, jsAfter;
+    // TODO deprecate fragmentUrl in next version
+    private String id, tag, fragmentUrl, href, jsBefore, jsAfter;
 
     public String getId() {
         return id;
@@ -65,10 +66,6 @@ public class ZoneTag extends TagSupport {
      */
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public String getFragmentUrl() {
-        return fragmentUrl;
     }
 
     public String getJsBefore() {
@@ -101,7 +98,12 @@ public class ZoneTag extends TagSupport {
         this.jsAfter = jsAfter;
     }
 
+    public String getFragmentUrl() {
+        return fragmentUrl;
+    }
+
     /**
+     * @deprecated
      * @param fragmentUrl String
      * @jsp.attribute required="false"
      * @jsp.attribute rtexprvalue="true"
@@ -112,10 +114,28 @@ public class ZoneTag extends TagSupport {
         this.fragmentUrl = fragmentUrl;
     }
 
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * @param href String
+     * @jsp.attribute required="false"
+     * @jsp.attribute rtexprvalue="true"
+     * @jsp.attribute type="java.lang.String"
+     * @jsp.attribute description="url to get content when page is loaded"
+     */
+    public void setHref(String href) {
+        this.href = href;
+    }
+
     public int doStartTag() throws JspException {
         try {
+            // TODO remove fragmenturl support in next version
             if (fragmentUrl != null && fragmentUrl.trim().length() > 0) {
                 pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, getTag(), fragmentUrl, jsBefore, jsAfter));
+            } else if (href != null && href.trim().length() > 0) {
+                pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, getTag(), href, jsBefore, jsAfter));
             } else {
                 pageContext.getOut().print(AAUtils.getZoneStartDelimiter(id, getTag()));
             }

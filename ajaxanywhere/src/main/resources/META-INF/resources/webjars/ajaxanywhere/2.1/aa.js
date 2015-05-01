@@ -249,7 +249,7 @@ $(function () {
     // Check for all the AjaxAnywhere enabled links or elements
     $(document).on("click", "[aa-refresh-zones]", function(event) {
         event.preventDefault();
-        // These elements have already been taken care of
+        // Form elements have already been taken care of
         if (!$(this).is("form, input, button, select") || !$(this).closest('form')) {
             var href = $(this).attr("href") || $(this).attr("aa-href");
             AjaxAnywhere.submitAjaxAnywhereLink(href, $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));

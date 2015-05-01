@@ -55,7 +55,7 @@ public class TestZoneTagLib {
     public void testTag2() {
         try {
             zoneTag.setId("whatever");
-            zoneTag.setFragmentUrl("http://whatever.com/whatever");
+            zoneTag.setHref("http://whatever.com/whatever");
             zoneTag.setJsBefore("beforeJs();");
             zoneTag.setJsAfter("afterJs();");
             zoneTag.doStartTag();
@@ -63,7 +63,7 @@ public class TestZoneTagLib {
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-href=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
@@ -76,14 +76,14 @@ public class TestZoneTagLib {
     public void testTag3() {
         try {
             zoneTag.setId("whatever");
-            zoneTag.setFragmentUrl("http://whatever.com/whatever");
+            zoneTag.setHref("http://whatever.com/whatever");
             zoneTag.setJsAfter("afterJs();");
             zoneTag.doStartTag();
             zoneTag.doEndTag();
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-href=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-after=\"afterJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
@@ -96,14 +96,14 @@ public class TestZoneTagLib {
     public void testTag4() {
         try {
             zoneTag.setId("whatever");
-            zoneTag.setFragmentUrl("http://whatever.com/whatever");
+            zoneTag.setHref("http://whatever.com/whatever");
             zoneTag.setJsBefore("beforeJs();");
             zoneTag.doStartTag();
             zoneTag.doEndTag();
             String output = ((MockHttpServletResponse)mockPageContext.getResponse()).getContentAsString();
 
             out.println(output);
-            assertThat(output, is("<div id=\"whatever\" aa-fragment-url=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\"><!-- @end of zone [whatever]@ --></div>"));
+            assertThat(output, is("<div id=\"whatever\" aa-href=\"http://whatever.com/whatever\" style=\"display:inline;\" aa-js-before=\"beforeJs();\"><!-- @end of zone [whatever]@ --></div>"));
 
 
         }catch(Exception e){
