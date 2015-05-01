@@ -15,6 +15,8 @@
  limitations under the License.
  */
 
+"use strict";
+
 /**
  * version: 2.1
  */
@@ -148,7 +150,7 @@ AjaxAnywhere.retrieveTags = function(refreshZones) {
     var zonesArray = refreshZones.split(',');
     var tagsArray = [];
     $.each(zonesArray, function(index, value) {
-        tagsArray.push($('#' + value.trim()).prop('tagName').toLowerCase());
+        tagsArray.push($('#' + $.trim(value)).prop('tagName').toLowerCase());
     });
     return tagsArray.join(',');
 };
@@ -244,21 +246,12 @@ $(function () {
     });
 
     // Check for all the AjaxAnywhere enabled links or elements
-    // TODO Deprecated and to be removed in next version
     $(document).on("click", "[aa-refresh-zones]", function(event) {
         event.preventDefault();
         // These elements have already been taken care of
         if (!$(this).is("form, input, button, select") || !$(this).closest('form')) {
-            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
-        }
-    });
-
-    // Check for all the AjaxAnywhere enabled links or elements
-    $(document).on("click", "[aa-refresh-zones]", function(event) {
-        event.preventDefault();
-        // These elements have already been taken care of
-        if (!$(this).is("form, input, button, select") || !$(this).closest('form')) {
-            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
+            var href = $(this).attr("href") || $(this).attr("aa-href");
+            AjaxAnywhere.submitAjaxAnywhereLink(href, $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
         }
     });
 
@@ -266,9 +259,9 @@ $(function () {
     // TODO Deprecated and to be removed in next version
     $("[aa-fragment-url]").each(function(){
         AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-fragment-url"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
-    })
+    });
 
     $("[aa-onload=true]").each(function(){
         AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-href"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
-    })
+    });
 });
