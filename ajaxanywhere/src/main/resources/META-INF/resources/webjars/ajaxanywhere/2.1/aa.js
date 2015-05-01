@@ -258,11 +258,7 @@ $(function () {
 
     // Check all the defined refresh zones that need to be loaded automatically when the page loads
     // TODO Deprecated and to be removed in next version
-    $("[aa-fragment-url]").each(function(){
-        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-fragment-url"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
-    });
-
-    $("[aa-onload=true]").each(function(){
+    $("[aa-href]:not([aa-refresh-zones])").each(function(){
         AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-href"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
     });
 });
