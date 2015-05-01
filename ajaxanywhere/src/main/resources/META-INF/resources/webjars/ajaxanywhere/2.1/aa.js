@@ -70,10 +70,12 @@ AjaxAnywhere.submitAjaxAnywhereForm = function(parentForm, refreshZones, event, 
  * @param href
  * @param refreshZones
  * @param queue [optional]
+ * @param jsAfter [optional]
  * @param jsBefore [optional]
  * @param jsAfter [optional]
  */
-AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, queue, jsBefore, jsAfter) {
+AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, queue, method, jsBefore, jsAfter) {
+
     if(jsBefore) {
         // Execute javascript before Ajax request
         eval(jsBefore);
@@ -83,7 +85,7 @@ AjaxAnywhere.submitAjaxAnywhereLink = function(href, refreshZones, queue, jsBefo
 
     var options = {
         url: href,
-        type: 'GET',
+        type: method ? method : 'GET',
         data: $.param(params),
         dataType: 'xml',
         success: function(response, status, request) {
@@ -242,16 +244,31 @@ $(function () {
     });
 
     // Check for all the AjaxAnywhere enabled links or elements
+    // TODO Deprecated and to be removed in next version
     $(document).on("click", "[aa-refresh-zones]", function(event) {
         event.preventDefault();
         // These elements have already been taken care of
-        if (!$(this).is("form, input, button, select")) {
-            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
+        if (!$(this).is("form, input, button, select") || !$(this).closest('form')) {
+            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
+        }
+    });
+
+    // Check for all the AjaxAnywhere enabled links or elements
+    $(document).on("click", "[aa-refresh-zones]", function(event) {
+        event.preventDefault();
+        // These elements have already been taken care of
+        if (!$(this).is("form, input, button, select") || !$(this).closest('form')) {
+            AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-href"), $(this).attr("aa-refresh-zones"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
         }
     });
 
     // Check all the defined refresh zones that need to be loaded automatically when the page loads
+    // TODO Deprecated and to be removed in next version
     $("[aa-fragment-url]").each(function(){
-        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-fragment-url"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
+        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-fragment-url"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
+    })
+
+    $("[aa-onload=true]").each(function(){
+        AjaxAnywhere.submitAjaxAnywhereLink($(this).attr("aa-href"), $(this).attr("id"), $(this).attr("aa-queue") || false, $(this).attr("aa-method"), $(this).attr("aa-js-before"), $(this).attr("aa-js-after"));
     })
 });
