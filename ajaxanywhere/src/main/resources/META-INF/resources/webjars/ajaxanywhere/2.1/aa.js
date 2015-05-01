@@ -1,6 +1,6 @@
 /*
  Copyright 2005  Vitaliy Shevchuk (shevit@users.sourceforge.net)
- Copyright 2013  nerdErg Pty Ltd (info@nerderg.com)
+ Copyright 2013  Angel Ruiz (aruizca@gmail.com)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,12 +18,9 @@
 "use strict";
 
 /**
- * version: 2.1
- */
-
-/**
- * Global Object container
- * @type {{}}
+ * AjaxAnywhere client
+ * @version: 2.1
+ * @author: Angel Ruiz - aruizca@gmail.com
  */
 var AjaxAnywhere = {
     /**
@@ -150,7 +147,11 @@ AjaxAnywhere.retrieveTags = function(refreshZones) {
     var zonesArray = refreshZones.split(',');
     var tagsArray = [];
     $.each(zonesArray, function(index, value) {
-        tagsArray.push($('#' + $.trim(value)).prop('tagName').toLowerCase());
+        if ($('#' + $.trim(value)).length == 0) {
+            console.log("The zone with name " + $.trim(value) + " does not exist. Please check for spelling mistake.");
+        } else {
+            tagsArray.push($('#' + $.trim(value)).prop('tagName').toLowerCase());
+        }
     });
     return tagsArray.join(',');
 };
