@@ -23,7 +23,7 @@
         - Remove JSF support
         - Remove dependency with Java SE HTML parser
     </description>
-    <url>http://nerderg.com/AjaxAnywhere</url>
+    <url>http://ajaxanywhere.com</url>
 
     <licenses>
         <license>
@@ -94,36 +94,6 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--<profiles>-->
-        <!--<profile>-->
-            <!--<id>release-sign-artifacts</id>-->
-            <!--<activation>-->
-                <!--<property>-->
-                    <!--<name>performRelease</name>-->
-                    <!--<value>true</value>-->
-                <!--</property>-->
-            <!--</activation>-->
-            <!--<build>-->
-                <!--<plugins>-->
-                    <!--<plugin>-->
-                        <!--<groupId>org.apache.maven.plugins</groupId>-->
-                        <!--<artifactId>maven-gpg-plugin</artifactId>-->
-                        <!--<version>1.5</version>-->
-                        <!--<executions>-->
-                            <!--<execution>-->
-                                <!--<id>sign-artifacts</id>-->
-                                <!--<phase>verify</phase>-->
-                                <!--<goals>-->
-                                    <!--<goal>sign</goal>-->
-                                <!--</goals>-->
-                            <!--</execution>-->
-                        <!--</executions>-->
-                    <!--</plugin>-->
-                <!--</plugins>-->
-            <!--</build>-->
-        <!--</profile>-->
-    <!--</profiles>-->
 
     <modules>
         <module>ajaxanywhere</module>
