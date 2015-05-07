@@ -79,7 +79,10 @@
 
     <profiles>
         <profile>
-            <id>ossrh></id>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
