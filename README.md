@@ -11,9 +11,4 @@ This project is a fork of the original AjaxAnywhere project (http://ajaxanywhere
 - Remove JSF support 
 - Remove dependency with Java SE HTML parser
 
-You can find more info about it in [our WIKI](http://nerderg.com/AjaxAnywhere).
-
-##Changelog
-
-- version 2.0 (13/03/2013)
-    - Initial release. The 2.0 version denotes that it is newer and better version than the original AjaxAnywhere library.
+You can find more info about it our site: http://ajaxanywhere.com
