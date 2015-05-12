@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <li><a class="documentation" href="http://ajaxanywhere.com/documentation.html">Documentation</a></li>
                 <li class="active"><a href="#">Examples</a></li>
-                <li><a id="grails-plugin" href="#" data-container="body" data-toggle="popover" data-placement="bottom" data-content="It will be published soon (for real this time :-)">Grails Plugin</a></li>
+                <li><a id="grails-plugin" href="https://grails.org/plugin/ajaxanywhere" target="_blank">Grails Plugin</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false"><i class="fa fa-github fa-lg"></i> Source Code <span class="caret"></span></a>
